@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import ActivityKit
+import WidgetKit
 
 struct ContentView: View {
     var body: some View {
