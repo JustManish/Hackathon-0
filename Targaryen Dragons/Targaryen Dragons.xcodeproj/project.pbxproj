@@ -19,6 +19,8 @@
 		31AA1887290A498200079CA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31AA1889290A498500079CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AA188C290A498500079CA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31AA1898290AC3A400079CA8 /* LocationSimulation_2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationSimulation_2.gpx; sourceTree = "<group>"; };
+		31AA1899290AC3DF00079CA8 /* LocationSimulation_1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationSimulation_1.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,8 @@
 			children = (
 				31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */,
 				31AA1887290A498200079CA8 /* ContentView.swift */,
+				31AA1898290AC3A400079CA8 /* LocationSimulation_2.gpx */,
+				31AA1899290AC3DF00079CA8 /* LocationSimulation_1.gpx */,
 				31AA1889290A498500079CA8 /* Assets.xcassets */,
 				31AA188B290A498500079CA8 /* Preview Content */,
 			);
