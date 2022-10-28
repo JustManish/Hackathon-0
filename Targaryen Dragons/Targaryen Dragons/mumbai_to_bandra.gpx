@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    <wpt lat="19.017620500000007" lon="72.85616920000004">
+        <name> Point 0 </name>
+    </wpt>
+    <wpt lat="19.017842199999986" lon="72.8558649">
+        <name> Point 1 </name>
+    </wpt>  <wpt lat="19.01823209999999" lon="72.85657700000002">
+        <name> Point 2 </name>
+    </wpt>
+    <wpt lat="19.0188391" lon="72.85567780000002">
+        <name> Point 3 </name>
+    </wpt>
+    <wpt lat="19.020037299999988" lon="72.85359069999998">
+        <name> Point 4 </name>
+    </wpt>
+    <wpt lat="19.017426" lon="72.84940480000003">
+        <name> Point 5 </name>
+    </wpt>
+    <wpt lat="19.017529099999987" lon="72.84908990000002">
+        <name> Point 6 </name>
+    </wpt>
+    <wpt lat="19.017173100000004" lon="72.84876370000003">
+        <name> Point 7 </name>
+    </wpt>
+    <wpt lat="19.017893300000008" lon="72.84750170000001">
+        <name> Point 8 </name> </wpt>
+    <wpt lat="19.021213199999995" lon="72.8419117">
+        <name> Point 9 </name>
+    </wpt>
+    <wpt lat="19.021213199999995" lon="72.8419117">
+        <name> Point 10 </name>
+    </wpt>
+    <wpt lat="19.025131199999993" lon="72.8404572">
+        <name> Point 11 </name>
+    </wpt>
+    <wpt lat="19.048749299999994" lon="72.83821790000005">
+        <name> Point 12 </name>
+    </wpt>
+    <wpt lat="19.050150699999993" lon="72.83824170000003">
+        <name> Point 13 </name>
+    </wpt>
+    <wpt lat="19.050904300000003" lon="72.84053270000001">
+        <name> Point 14 </name>
+    </wpt>
+    <wpt lat="19.051882299999992" lon="72.8429219">
+        <name> Point 15 </name>
+    </wpt>
+    <wpt lat="19.052538300000002" lon="72.84465890000004">
+        <name> Point 16 </name>
+    </wpt>
+    <wpt lat="19.055592300000004" lon="72.84632590000004">
+        <name> Point 17 </name>
+    </wpt>
+    <wpt lat="19.063350199999984" lon="72.84168000000005">
+        <name> Point 18 </name>
+    </wpt>
+    <wpt lat="19.064277099999988" lon="72.84173099999998">
+        <name> Point 19 </name>
+    </wpt>
+</gpx>

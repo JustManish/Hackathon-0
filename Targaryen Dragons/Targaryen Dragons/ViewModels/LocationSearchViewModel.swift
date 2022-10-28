@@ -62,7 +62,6 @@
          request.source = MKMapItem(placemark: userPlacemark)
          request.destination = MKMapItem(placemark: destPlacemark)
          let directions = MKDirections(request: request)
-
          directions.calculate { response, error in
              if let error = error {
                  print("DEBUG: Failed to get directions with error \(error.localizedDescription)")
@@ -71,6 +70,22 @@
 
              guard let route = response?.routes.first else { return }
              self.routeSteps = route.steps.map { RouteStep(step: $0) }
+
+             // ----------- Code required to generate coordinates ---------
+             var coordinates = [String]()
+             for (index, item) in route.steps.enumerated() {
+                 
+                 let str = "<wpt lat="
+                     .appending("\(item.polyline.coordinate.latitude)")
+                     .appending(" lon=")
+                     .appending("\(item.polyline.coordinate.longitude)")
+                     .appending("> <name> Point \(index) </name> </wpt>")
+                 
+                 coordinates.append(str)
+             }
+             print("coordinates wpt \(coordinates)")
+             // ----------- Code required to generate coordinates ---------
+             
              self.getExpectedTravelTime(with: route.expectedTravelTime)
              completion(route)
          }
