@@ -8,10 +8,14 @@
 import SwiftUI
 
 @main
-struct Targaryen_DragonsApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
+ struct Targaryen_DragonsApp: App {
+
+     @StateObject var locationViewModel = LocationSearchViewModel()
+
+     var body: some Scene {
+         WindowGroup {
+             HomeView()
+                 .environmentObject(locationViewModel)
+         }
+     }
+ }
