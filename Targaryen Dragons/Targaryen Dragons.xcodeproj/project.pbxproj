@@ -8,19 +8,84 @@
 
 /* Begin PBXBuildFile section */
 		31AA1886290A498200079CA8 /* Targaryen_DragonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */; };
-		31AA1888290A498200079CA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA1887290A498200079CA8 /* ContentView.swift */; };
 		31AA188A290A498500079CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AA1889290A498500079CA8 /* Assets.xcassets */; };
 		31AA188D290A498500079CA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AA188C290A498500079CA8 /* Preview Assets.xcassets */; };
+		DFB4C7A8290A8A9300879254 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A7290A8A9300879254 /* WidgetKit.framework */; };
+		DFB4C7AA290A8A9300879254 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A9290A8A9300879254 /* SwiftUI.framework */; };
+		DFB4C7AD290A8A9300879254 /* OrderStatusBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7AC290A8A9300879254 /* OrderStatusBundle.swift */; };
+		DFB4C7AF290A8A9300879254 /* OrderStatusLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7AE290A8A9300879254 /* OrderStatusLiveActivity.swift */; };
+		DFB4C7B4290A8A9500879254 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFB4C7B3290A8A9500879254 /* Assets.xcassets */; };
+		DFB4C7B6290A8A9500879254 /* OrderStatus.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7B2290A8A9300879254 /* OrderStatus.intentdefinition */; };
+		DFB4C7B7290A8A9500879254 /* OrderStatus.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7B2290A8A9300879254 /* OrderStatus.intentdefinition */; };
+		DFB4C7BA290A8A9500879254 /* OrderStatusExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DFB4C7C0290A8B0800879254 /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
+		DFB4C7C1290A8B0E00879254 /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
+		DFB4C7C4290A94EF00879254 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */; };
+		DFD50A38290BBC8E001686DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A37290BBC8E001686DE /* MapView.swift */; };
+		DFD50A3A290BBCB8001686DE /* LocationSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */; };
+		DFD50A3C290BBCD6001686DE /* LocationSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A3B290BBCD6001686DE /* LocationSearchListView.swift */; };
+		DFD50A3E290BBCF6001686DE /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A3D290BBCF6001686DE /* LocationSearchActivationView.swift */; };
+		DFD50A40290BBD0D001686DE /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A3F290BBD0D001686DE /* HomeView.swift */; };
+		DFD50A42290BBD2B001686DE /* DynamicActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A41290BBD2B001686DE /* DynamicActionButton.swift */; };
+		DFD50A44290BBD52001686DE /* DirectionsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A43290BBD52001686DE /* DirectionsListView.swift */; };
+		DFD50A46290BBD73001686DE /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A45290BBD73001686DE /* LocationSearchViewModel.swift */; };
+		DFD50A48290BBDAA001686DE /* RouteStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A47290BBDAA001686DE /* RouteStep.swift */; };
+		DFD50A4A290BBDBD001686DE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A49290BBDBD001686DE /* Location.swift */; };
+		DFD50A4C290BBDD4001686DE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A4B290BBDD4001686DE /* LocationManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFB4C7B8290A8A9500879254 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31AA187A290A498200079CA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFB4C7A4290A8A9300879254;
+			remoteInfo = OrderStatusExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DFB4C7BB290A8A9500879254 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DFB4C7BA290A8A9500879254 /* OrderStatusExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		31AA1882290A498200079CA8 /* Targaryen Dragons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Targaryen Dragons.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Targaryen_DragonsApp.swift; sourceTree = "<group>"; };
-		31AA1887290A498200079CA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31AA1889290A498500079CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AA188C290A498500079CA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31AA1898290AC3A400079CA8 /* LocationSimulation_2.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationSimulation_2.gpx; sourceTree = "<group>"; };
 		31AA1899290AC3DF00079CA8 /* LocationSimulation_1.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LocationSimulation_1.gpx; sourceTree = "<group>"; };
+		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFB4C7A7290A8A9300879254 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DFB4C7A9290A8A9300879254 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		DFB4C7AC290A8A9300879254 /* OrderStatusBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusBundle.swift; sourceTree = "<group>"; };
+		DFB4C7AE290A8A9300879254 /* OrderStatusLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusLiveActivity.swift; sourceTree = "<group>"; };
+		DFB4C7B2290A8A9300879254 /* OrderStatus.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = OrderStatus.intentdefinition; sourceTree = "<group>"; };
+		DFB4C7B3290A8A9500879254 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFB4C7B5290A8A9500879254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusAttributes.swift; sourceTree = "<group>"; };
+		DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		DFD50A37290BBC8E001686DE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultView.swift; sourceTree = "<group>"; };
+		DFD50A3B290BBCD6001686DE /* LocationSearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchListView.swift; sourceTree = "<group>"; };
+		DFD50A3D290BBCF6001686DE /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
+		DFD50A3F290BBD0D001686DE /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		DFD50A41290BBD2B001686DE /* DynamicActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicActionButton.swift; sourceTree = "<group>"; };
+		DFD50A43290BBD52001686DE /* DirectionsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsListView.swift; sourceTree = "<group>"; };
+		DFD50A45290BBD73001686DE /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
+		DFD50A47290BBDAA001686DE /* RouteStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStep.swift; sourceTree = "<group>"; };
+		DFD50A49290BBDBD001686DE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		DFD50A4B290BBDD4001686DE /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +96,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DFB4C7A2290A8A9300879254 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB4C7AA290A8A9300879254 /* SwiftUI.framework in Frameworks */,
+				DFB4C7A8290A8A9300879254 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -38,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				31AA1884290A498200079CA8 /* Targaryen Dragons */,
+				DFB4C7AB290A8A9300879254 /* OrderStatus */,
+				DFB4C7A6290A8A9300879254 /* Frameworks */,
 				31AA1883290A498200079CA8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				31AA1882290A498200079CA8 /* Targaryen Dragons.app */,
+				DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,9 +131,13 @@
 			isa = PBXGroup;
 			children = (
 				31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */,
-				31AA1887290A498200079CA8 /* ContentView.swift */,
 				31AA1898290AC3A400079CA8 /* LocationSimulation_2.gpx */,
 				31AA1899290AC3DF00079CA8 /* LocationSimulation_1.gpx */,
+				DFD50A36290BBC72001686DE /* Managers */,
+				DFD50A35290BBC6A001686DE /* ViewModels */,
+				DFD50A34290BBC60001686DE /* Views */,
+				DFD50A33290BBC53001686DE /* Models */,
+				DFB4C7C2290A948500879254 /* Models */,
 				31AA1889290A498500079CA8 /* Assets.xcassets */,
 				31AA188B290A498500079CA8 /* Preview Content */,
 			);
@@ -71,6 +152,75 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DFB4C7A6290A8A9300879254 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DFB4C7A7290A8A9300879254 /* WidgetKit.framework */,
+				DFB4C7A9290A8A9300879254 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DFB4C7AB290A8A9300879254 /* OrderStatus */ = {
+			isa = PBXGroup;
+			children = (
+				DFB4C7AC290A8A9300879254 /* OrderStatusBundle.swift */,
+				DFB4C7AE290A8A9300879254 /* OrderStatusLiveActivity.swift */,
+				DFB4C7B2290A8A9300879254 /* OrderStatus.intentdefinition */,
+				DFB4C7B3290A8A9500879254 /* Assets.xcassets */,
+				DFB4C7B5290A8A9500879254 /* Info.plist */,
+			);
+			path = OrderStatus;
+			sourceTree = "<group>";
+		};
+		DFB4C7C2290A948500879254 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DFD50A33290BBC53001686DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DFD50A47290BBDAA001686DE /* RouteStep.swift */,
+				DFD50A49290BBDBD001686DE /* Location.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		DFD50A34290BBC60001686DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DFD50A37290BBC8E001686DE /* MapView.swift */,
+				DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */,
+				DFD50A3B290BBCD6001686DE /* LocationSearchListView.swift */,
+				DFD50A3D290BBCF6001686DE /* LocationSearchActivationView.swift */,
+				DFD50A3F290BBD0D001686DE /* HomeView.swift */,
+				DFD50A41290BBD2B001686DE /* DynamicActionButton.swift */,
+				DFD50A43290BBD52001686DE /* DirectionsListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DFD50A35290BBC6A001686DE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DFD50A45290BBD73001686DE /* LocationSearchViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DFD50A36290BBC72001686DE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */,
+				DFD50A4B290BBDD4001686DE /* LocationManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -81,15 +231,34 @@
 				31AA187E290A498200079CA8 /* Sources */,
 				31AA187F290A498200079CA8 /* Frameworks */,
 				31AA1880290A498200079CA8 /* Resources */,
+				DFB4C7BB290A8A9500879254 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DFB4C7B9290A8A9500879254 /* PBXTargetDependency */,
 			);
 			name = "Targaryen Dragons";
 			productName = "Targaryen Dragons";
 			productReference = 31AA1882290A498200079CA8 /* Targaryen Dragons.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DFB4C7A4290A8A9300879254 /* OrderStatusExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFB4C7BE290A8A9500879254 /* Build configuration list for PBXNativeTarget "OrderStatusExtension" */;
+			buildPhases = (
+				DFB4C7A1290A8A9300879254 /* Sources */,
+				DFB4C7A2290A8A9300879254 /* Frameworks */,
+				DFB4C7A3290A8A9300879254 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OrderStatusExtension;
+			productName = OrderStatusExtension;
+			productReference = DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -102,6 +271,9 @@
 				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					31AA1881290A498200079CA8 = {
+						CreatedOnToolsVersion = 14.1;
+					};
+					DFB4C7A4290A8A9300879254 = {
 						CreatedOnToolsVersion = 14.1;
 					};
 				};
@@ -120,6 +292,7 @@
 			projectRoot = "";
 			targets = (
 				31AA1881290A498200079CA8 /* Targaryen Dragons */,
+				DFB4C7A4290A8A9300879254 /* OrderStatusExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -134,6 +307,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DFB4C7A3290A8A9300879254 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB4C7B4290A8A9500879254 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -141,12 +322,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31AA1888290A498200079CA8 /* ContentView.swift in Sources */,
+				DFB4C7B7290A8A9500879254 /* OrderStatus.intentdefinition in Sources */,
+				DFD50A38290BBC8E001686DE /* MapView.swift in Sources */,
+				DFD50A3A290BBCB8001686DE /* LocationSearchResultView.swift in Sources */,
+				DFD50A40290BBD0D001686DE /* HomeView.swift in Sources */,
+				DFD50A4C290BBDD4001686DE /* LocationManager.swift in Sources */,
+				DFB4C7C0290A8B0800879254 /* OrderStatusAttributes.swift in Sources */,
+				DFD50A44290BBD52001686DE /* DirectionsListView.swift in Sources */,
+				DFD50A4A290BBDBD001686DE /* Location.swift in Sources */,
+				DFD50A48290BBDAA001686DE /* RouteStep.swift in Sources */,
+				DFD50A46290BBD73001686DE /* LocationSearchViewModel.swift in Sources */,
+				DFD50A3C290BBCD6001686DE /* LocationSearchListView.swift in Sources */,
 				31AA1886290A498200079CA8 /* Targaryen_DragonsApp.swift in Sources */,
+				DFD50A42290BBD2B001686DE /* DynamicActionButton.swift in Sources */,
+				DFB4C7C4290A94EF00879254 /* LiveActivityManager.swift in Sources */,
+				DFD50A3E290BBCF6001686DE /* LocationSearchActivationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFB4C7A1290A8A9300879254 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFB4C7C1290A8B0E00879254 /* OrderStatusAttributes.swift in Sources */,
+				DFB4C7B6290A8A9500879254 /* OrderStatus.intentdefinition in Sources */,
+				DFB4C7AD290A8A9300879254 /* OrderStatusBundle.swift in Sources */,
+				DFB4C7AF290A8A9300879254 /* OrderStatusLiveActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFB4C7B9290A8A9500879254 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFB4C7A4290A8A9300879254 /* OrderStatusExtension */;
+			targetProxy = DFB4C7B8290A8A9500879254 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		31AA188E290A498500079CA8 /* Debug */ = {
@@ -266,6 +479,7 @@
 		31AA1891290A498500079CA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -274,6 +488,7 @@
 				DEVELOPMENT_TEAM = RLNA7ZSN7E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby locations to explore";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -295,6 +510,7 @@
 		31AA1892290A498500079CA8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +519,7 @@
 				DEVELOPMENT_TEAM = RLNA7ZSN7E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby locations to explore";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +532,62 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DFB4C7BC290A8A9500879254 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RLNA7ZSN7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderStatus/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OrderStatus;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons.OrderStatus";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFB4C7BD290A8A9500879254 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RLNA7ZSN7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OrderStatus/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OrderStatus;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons.OrderStatus";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -338,6 +611,15 @@
 			buildConfigurations = (
 				31AA1891290A498500079CA8 /* Debug */,
 				31AA1892290A498500079CA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFB4C7BE290A8A9500879254 /* Build configuration list for PBXNativeTarget "OrderStatusExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFB4C7BC290A8A9500879254 /* Debug */,
+				DFB4C7BD290A8A9500879254 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
