@@ -19,7 +19,6 @@
 		DFB4C7B7290A8A9500879254 /* OrderStatus.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7B2290A8A9300879254 /* OrderStatus.intentdefinition */; };
 		DFB4C7BA290A8A9500879254 /* OrderStatusExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DFB4C7C0290A8B0800879254 /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
-		DFB4C7C1290A8B0E00879254 /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
 		DFB4C7C4290A94EF00879254 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */; };
 		DFD50A38290BBC8E001686DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A37290BBC8E001686DE /* MapView.swift */; };
 		DFD50A3A290BBCB8001686DE /* LocationSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */; };
@@ -32,6 +31,7 @@
 		DFD50A48290BBDAA001686DE /* RouteStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A47290BBDAA001686DE /* RouteStep.swift */; };
 		DFD50A4A290BBDBD001686DE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A49290BBDBD001686DE /* Location.swift */; };
 		DFD50A4C290BBDD4001686DE /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A4B290BBDD4001686DE /* LocationManager.swift */; };
+		DFD50A8A290C1597001686DE /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,7 +135,6 @@
 				DFD50A35290BBC6A001686DE /* ViewModels */,
 				DFD50A34290BBC60001686DE /* Views */,
 				DFD50A33290BBC53001686DE /* Models */,
-				DFB4C7C2290A948500879254 /* Models */,
 				31AA1889290A498500079CA8 /* Assets.xcassets */,
 				31AA188B290A498500079CA8 /* Preview Content */,
 			);
@@ -171,17 +170,10 @@
 			path = OrderStatus;
 			sourceTree = "<group>";
 		};
-		DFB4C7C2290A948500879254 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		DFD50A33290BBC53001686DE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */,
 				DFD50A47290BBDAA001686DE /* RouteStep.swift */,
 				DFD50A49290BBDBD001686DE /* Location.swift */,
 			);
@@ -342,8 +334,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFB4C7C1290A8B0E00879254 /* OrderStatusAttributes.swift in Sources */,
 				DFB4C7B6290A8A9500879254 /* OrderStatus.intentdefinition in Sources */,
+				DFD50A8A290C1597001686DE /* OrderStatusAttributes.swift in Sources */,
 				DFB4C7AD290A8A9300879254 /* OrderStatusBundle.swift in Sources */,
 				DFB4C7AF290A8A9300879254 /* OrderStatusLiveActivity.swift in Sources */,
 			);
@@ -483,7 +475,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Targaryen Dragons/Preview Content\"";
-				DEVELOPMENT_TEAM = RLNA7ZSN7E;
+				DEVELOPMENT_TEAM = GY8C66TYQJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby locations to explore";
@@ -497,7 +489,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -514,7 +506,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Targaryen Dragons/Preview Content\"";
-				DEVELOPMENT_TEAM = RLNA7ZSN7E;
+				DEVELOPMENT_TEAM = GY8C66TYQJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby locations to explore";
@@ -528,7 +520,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -543,7 +535,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RLNA7ZSN7E;
+				DEVELOPMENT_TEAM = GY8C66TYQJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrderStatus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OrderStatus;
@@ -555,7 +547,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons.OrderStatus";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons.OrderStatus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -571,7 +563,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = RLNA7ZSN7E;
+				DEVELOPMENT_TEAM = GY8C66TYQJ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrderStatus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OrderStatus;
@@ -583,7 +575,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.dragons.Targaryen-Dragons.OrderStatus";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons.OrderStatus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;

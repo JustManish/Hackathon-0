@@ -8,6 +8,8 @@
  import Foundation
  import MapKit
 
+//TODO: Remember Simulated Location is set from Wadala west to Gateway of India
+
  class LocationSearchViewModel: NSObject, ObservableObject {
 
      @Published var results = [MKLocalSearchCompletion]()

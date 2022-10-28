@@ -1,61 +1,65 @@
 <?xml version="1.0"?>
 <gpx version="1.1" creator="Xcode">
-    <wpt lat="19.017620500000007" lon="72.85616920000004">
-        <name> Point 0 </name>
-    </wpt>
-    <wpt lat="19.017842199999986" lon="72.8558649">
-        <name> Point 1 </name>
-    </wpt>  <wpt lat="19.01823209999999" lon="72.85657700000002">
-        <name> Point 2 </name>
-    </wpt>
-    <wpt lat="19.0188391" lon="72.85567780000002">
-        <name> Point 3 </name>
-    </wpt>
-    <wpt lat="19.020037299999988" lon="72.85359069999998">
-        <name> Point 4 </name>
-    </wpt>
-    <wpt lat="19.017426" lon="72.84940480000003">
-        <name> Point 5 </name>
-    </wpt>
-    <wpt lat="19.017529099999987" lon="72.84908990000002">
-        <name> Point 6 </name>
-    </wpt>
-    <wpt lat="19.017173100000004" lon="72.84876370000003">
-        <name> Point 7 </name>
-    </wpt>
-    <wpt lat="19.017893300000008" lon="72.84750170000001">
-        <name> Point 8 </name> </wpt>
-    <wpt lat="19.021213199999995" lon="72.8419117">
-        <name> Point 9 </name>
-    </wpt>
-    <wpt lat="19.021213199999995" lon="72.8419117">
-        <name> Point 10 </name>
-    </wpt>
-    <wpt lat="19.025131199999993" lon="72.8404572">
-        <name> Point 11 </name>
-    </wpt>
-    <wpt lat="19.048749299999994" lon="72.83821790000005">
-        <name> Point 12 </name>
-    </wpt>
-    <wpt lat="19.050150699999993" lon="72.83824170000003">
-        <name> Point 13 </name>
-    </wpt>
-    <wpt lat="19.050904300000003" lon="72.84053270000001">
-        <name> Point 14 </name>
-    </wpt>
-    <wpt lat="19.051882299999992" lon="72.8429219">
-        <name> Point 15 </name>
-    </wpt>
-    <wpt lat="19.052538300000002" lon="72.84465890000004">
-        <name> Point 16 </name>
-    </wpt>
-    <wpt lat="19.055592300000004" lon="72.84632590000004">
-        <name> Point 17 </name>
-    </wpt>
-    <wpt lat="19.063350199999984" lon="72.84168000000005">
-        <name> Point 18 </name>
-    </wpt>
-    <wpt lat="19.064277099999988" lon="72.84173099999998">
-        <name> Point 19 </name>
-    </wpt>
+<wpt lat="19.020037299999988" lon="72.85359069999998">
+    <name> Point 0 </name>
+</wpt>
+<wpt lat="19.020348199999997" lon="72.8535018">
+    <name> Point 1 </name>
+</wpt>
+<wpt lat="19.021478199999986" lon="72.85178689999995">
+    <name> Point 2 </name>
+</wpt>
+<wpt lat="19.021936199999992" lon="72.85108079999998">
+    <name> Point 3 </name>
+</wpt>
+<wpt lat="19.019832199999993" lon="72.84934070000006">
+    <name> Point 4 </name> </wpt>
+<wpt lat="19.01158560000002" lon="72.84340400000005">
+    <name> Point 5 </name>
+</wpt>
+<wpt lat="19.006477299999997" lon="72.84067890000003">
+    <name> Point 6 </name>
+</wpt>
+<wpt lat="18.999251199999986" lon="72.83765199999999">
+    <name> Point 7 </name>
+</wpt>
+<wpt lat="18.977114099999987" lon="72.83358579999998">
+    <name> Point 8 </name>
+</wpt>
+<wpt lat="18.964427000000004" lon="72.83218970000001">
+    <name> Point 9 </name>
+</wpt>
+<wpt lat="18.93625799999998" lon="72.8338329">
+    <name> Point 10 </name>
+</wpt>
+<wpt lat="18.933497999999997" lon="72.83207869999998">
+    <name> Point 11 </name>
+</wpt>
+<wpt lat="18.932790200000003" lon="72.83130090000003">
+    <name> Point 12 </name>
+</wpt>
+<wpt lat="18.931842199999995" lon="72.8313287">
+    <name> Point 13 </name>
+</wpt>
+<wpt lat="18.926236099999993" lon="72.8315624">
+    <name> Point 14 </name>
+</wpt>
+<wpt lat="18.9252602" lon="72.8325558">
+    <name> Point 15 </name>
+</wpt>
+<wpt lat="18.923374199999984" lon="72.8338737">
+    <name> Point 16 </name>
+</wpt>
+<wpt lat="18.92293229999999" lon="72.83335879999998">
+    <name> Point 17 </name>
+</wpt>
+<wpt lat="18.92185709999998" lon="72.83357270000002">
+    <name> Point 18 </name>
+</wpt>
+<wpt lat="18.92185709999998" lon="72.83357270000002">
+    <name> Point 19 </name>
+</wpt>
+<wpt lat="18.922148999999994" lon="72.83436580000003">
+    <name> Point 20 </name>
+</wpt>
 </gpx>
