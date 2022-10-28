@@ -8,7 +8,7 @@
 import Foundation
 import ActivityKit
 
-struct OrderStatusLiveActivityManager {
+struct LiveActivityManager {
     
     let attributes: OrderStatusAttributes
     let orderStatus: OrderStatusAttributes.OrderStatus

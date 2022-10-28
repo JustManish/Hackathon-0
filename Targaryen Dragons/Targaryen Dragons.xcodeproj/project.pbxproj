@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		31AA1886290A498200079CA8 /* Targaryen_DragonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */; };
-		31AA1888290A498200079CA8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA1887290A498200079CA8 /* ContentView.swift */; };
 		31AA188A290A498500079CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AA1889290A498500079CA8 /* Assets.xcassets */; };
 		31AA188D290A498500079CA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AA188C290A498500079CA8 /* Preview Assets.xcassets */; };
 		DFB4C7A8290A8A9300879254 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A7290A8A9300879254 /* WidgetKit.framework */; };
@@ -21,7 +20,7 @@
 		DFB4C7BA290A8A9500879254 /* OrderStatusExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DFB4C7C0290A8B0800879254 /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
 		DFB4C7C1290A8B0E00879254 /* OrderStatusAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */; };
-		DFB4C7C4290A94EF00879254 /* OrderStatusLiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7C3290A94EF00879254 /* OrderStatusLiveActivityManager.swift */; };
+		DFB4C7C4290A94EF00879254 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */; };
 		DFD50A38290BBC8E001686DE /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A37290BBC8E001686DE /* MapView.swift */; };
 		DFD50A3A290BBCB8001686DE /* LocationSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */; };
 		DFD50A3C290BBCD6001686DE /* LocationSearchListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD50A3B290BBCD6001686DE /* LocationSearchListView.swift */; };
@@ -62,7 +61,6 @@
 /* Begin PBXFileReference section */
 		31AA1882290A498200079CA8 /* Targaryen Dragons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Targaryen Dragons.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Targaryen_DragonsApp.swift; sourceTree = "<group>"; };
-		31AA1887290A498200079CA8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31AA1889290A498500079CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AA188C290A498500079CA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +72,7 @@
 		DFB4C7B3290A8A9500879254 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFB4C7B5290A8A9500879254 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFB4C7BF290A8B0800879254 /* OrderStatusAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusAttributes.swift; sourceTree = "<group>"; };
-		DFB4C7C3290A94EF00879254 /* OrderStatusLiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusLiveActivityManager.swift; sourceTree = "<group>"; };
+		DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
 		DFD50A37290BBC8E001686DE /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultView.swift; sourceTree = "<group>"; };
 		DFD50A3B290BBCD6001686DE /* LocationSearchListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchListView.swift; sourceTree = "<group>"; };
@@ -130,14 +128,12 @@
 		31AA1884290A498200079CA8 /* Targaryen Dragons */ = {
 			isa = PBXGroup;
 			children = (
+				31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */,
 				DFD50A36290BBC72001686DE /* Managers */,
 				DFD50A35290BBC6A001686DE /* ViewModels */,
 				DFD50A34290BBC60001686DE /* Views */,
 				DFD50A33290BBC53001686DE /* Models */,
-				DFB4C7C3290A94EF00879254 /* OrderStatusLiveActivityManager.swift */,
 				DFB4C7C2290A948500879254 /* Models */,
-				31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */,
-				31AA1887290A498200079CA8 /* ContentView.swift */,
 				31AA1889290A498500079CA8 /* Assets.xcassets */,
 				31AA188B290A498500079CA8 /* Preview Content */,
 			);
@@ -215,6 +211,7 @@
 		DFD50A36290BBC72001686DE /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */,
 				DFD50A4B290BBDD4001686DE /* LocationManager.swift */,
 			);
 			path = Managers;
@@ -327,7 +324,6 @@
 				DFD50A40290BBD0D001686DE /* HomeView.swift in Sources */,
 				DFD50A4C290BBDD4001686DE /* LocationManager.swift in Sources */,
 				DFB4C7C0290A8B0800879254 /* OrderStatusAttributes.swift in Sources */,
-				31AA1888290A498200079CA8 /* ContentView.swift in Sources */,
 				DFD50A44290BBD52001686DE /* DirectionsListView.swift in Sources */,
 				DFD50A4A290BBDBD001686DE /* Location.swift in Sources */,
 				DFD50A48290BBDAA001686DE /* RouteStep.swift in Sources */,
@@ -335,7 +331,7 @@
 				DFD50A3C290BBCD6001686DE /* LocationSearchListView.swift in Sources */,
 				31AA1886290A498200079CA8 /* Targaryen_DragonsApp.swift in Sources */,
 				DFD50A42290BBD2B001686DE /* DynamicActionButton.swift in Sources */,
-				DFB4C7C4290A94EF00879254 /* OrderStatusLiveActivityManager.swift in Sources */,
+				DFB4C7C4290A94EF00879254 /* LiveActivityManager.swift in Sources */,
 				DFD50A3E290BBCF6001686DE /* LocationSearchActivationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
