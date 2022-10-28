@@ -71,6 +71,11 @@
              super.init()
          }
 
+         func resetToCurrentLocation() {
+             guard let region = currentRegion else { return }
+             parent.mapView.setRegion(region, animated: true)
+         }
+         
          func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
              self.userLocationCoordinate = userLocation.coordinate
              let region = MKCoordinateRegion(
@@ -79,9 +84,6 @@
              )
 
              self.currentRegion = region
-
-             mapView.showsUserLocation = false
-
              parent.mapView.setRegion(region, animated: true)
          }
 
@@ -89,7 +91,6 @@
              let polyline = MKPolylineRenderer(overlay: overlay)
              polyline.strokeColor = .systemBlue
              polyline.lineWidth = 6
-             mapView.showsUserLocation = false
              return polyline
          }
 

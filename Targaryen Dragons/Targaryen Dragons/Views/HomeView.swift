@@ -33,7 +33,19 @@
                      .padding(.leading)
                      .padding(.top, 4)
              }
-
+             
+             HStack {
+                 Spacer()
+                 Button {
+                    // TODO: handle current location
+                 } label: {
+                     Image(systemName: "location.circle")
+                         .imageScale(.large)
+                         .foregroundColor(.red)
+                 }
+                 .padding(.bottom, 50.0)
+                 .padding(.trailing, 50.0)
+             }
              if mapState == .locationSelected || mapState == .polylineAdded {
                  //TODO: Action
              }

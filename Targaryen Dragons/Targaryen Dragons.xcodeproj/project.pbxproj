@@ -63,6 +63,7 @@
 		31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Targaryen_DragonsApp.swift; sourceTree = "<group>"; };
 		31AA1889290A498500079CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AA188C290A498500079CA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31AA189C290C02A700079CA8 /* mumbai_to_bandra.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mumbai_to_bandra.gpx; sourceTree = "<group>"; };
 		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4C7A7290A8A9300879254 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DFB4C7A9290A8A9300879254 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -129,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */,
+				31AA189C290C02A700079CA8 /* mumbai_to_bandra.gpx */,
 				DFD50A36290BBC72001686DE /* Managers */,
 				DFD50A35290BBC6A001686DE /* ViewModels */,
 				DFD50A34290BBC60001686DE /* Views */,
