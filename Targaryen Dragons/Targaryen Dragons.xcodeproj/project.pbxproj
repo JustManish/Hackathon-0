@@ -65,6 +65,7 @@
 		31AA1889290A498500079CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AA188C290A498500079CA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31AA189C290C02A700079CA8 /* bandra_west_to_gateway_of_india.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = bandra_west_to_gateway_of_india.gpx; sourceTree = "<group>"; };
+		4C509EEE290D0C770099C761 /* Targaryen-Dragons-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Targaryen-Dragons-Info.plist"; sourceTree = SOURCE_ROOT; };
 		DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKRoute+Extension.swift"; sourceTree = "<group>"; };
 		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4C7A7290A8A9300879254 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -131,6 +132,7 @@
 		31AA1884290A498200079CA8 /* Targaryen Dragons */ = {
 			isa = PBXGroup;
 			children = (
+				4C509EEE290D0C770099C761 /* Targaryen-Dragons-Info.plist */,
 				31AA189C290C02A700079CA8 /* bandra_west_to_gateway_of_india.gpx */,
 				31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */,
 				DF3BED78290CE1B6009D2CE5 /* Extension */,
@@ -490,8 +492,10 @@
 				DEVELOPMENT_TEAM = GY8C66TYQJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Targaryen-Dragons-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Targaryen Dragon Tracker";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby locations to explore";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -522,8 +526,10 @@
 				DEVELOPMENT_TEAM = GY8C66TYQJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Targaryen-Dragons-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Targaryen Dragon Tracker";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to access your location to find you nearby locations to explore";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

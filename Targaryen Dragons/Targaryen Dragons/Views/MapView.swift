@@ -13,6 +13,7 @@
      case searchingForLocation
      case locationSelected
      case polylineAdded
+     case startNavigating
  }
 
  struct MapView: UIViewRepresentable {
@@ -49,6 +50,9 @@
              break
          case .polylineAdded:
              mapView.showsUserLocation = false
+             break
+         case .startNavigating:
+             locationViewModel.startLiveActivity()
              break
          }
      }
