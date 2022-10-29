@@ -13,6 +13,7 @@
      case searchingForLocation
      case locationSelected
      case polylineAdded
+     case mapSettingShown
  }
 
  struct MapView: UIViewRepresentable {
@@ -20,8 +21,9 @@
      let mapView = MKMapView()
      @Binding var mapState: MapViewState
      @EnvironmentObject var locationViewModel: LocationSearchViewModel
+     @EnvironmentObject var mapSettings: MapSettings
 
-     func makeUIView(context: Context) -> some UIView {
+     func makeUIView(context: Context) -> some MKMapView {
          mapView.isRotateEnabled = false
          mapView.showsUserLocation = true
          mapView.userTrackingMode = .follow
@@ -49,6 +51,10 @@
              break
          case .polylineAdded:
              mapView.showsUserLocation = false
+             break
+         case .mapSettingShown:
+             mapView.showsUserLocation = false
+             updateMapType(mapView)
              break
          }
      }
@@ -126,3 +132,39 @@
          }
      }
  }
+
+extension MapView {
+    private func updateMapType(_ mapView: MKMapView) {
+        switch mapSettings.mapType {
+        case 0:
+            let configuration = MKStandardMapConfiguration(elevationStyle: elevationStyle(), emphasisStyle: emphasisStyle())
+            configuration.pointOfInterestFilter = MKPointOfInterestFilter(including: [.atm,.airport,.beach,.nationalPark])
+            configuration.pointOfInterestFilter = MKPointOfInterestFilter(excluding: [.bakery])
+            configuration.showsTraffic = false
+            mapView.preferredConfiguration = MKStandardMapConfiguration(elevationStyle: elevationStyle(), emphasisStyle: emphasisStyle()) // the flat visualization of map
+        case 1:
+            mapView.preferredConfiguration = MKHybridMapConfiguration(elevationStyle: elevationStyle())// this uses satelite images and road names, can se the globe in realistic
+        case 2:
+            mapView.preferredConfiguration = MKImageryMapConfiguration(elevationStyle: elevationStyle()) //flat - just images dont see the globe, realistic 3D realistic building can see the globe
+        default:
+            break
+        }
+        
+    }
+    
+    private func elevationStyle() -> MKMapConfiguration.ElevationStyle {
+        if mapSettings.showElevation == 0 {
+            return MKMapConfiguration.ElevationStyle.realistic
+        } else {
+            return MKMapConfiguration.ElevationStyle.flat
+        }
+    }
+    
+    private func emphasisStyle() -> MKStandardMapConfiguration.EmphasisStyle {
+        if mapSettings.showEmphasisStyle == 0 {
+            return MKStandardMapConfiguration.EmphasisStyle.default
+        } else {
+            return MKStandardMapConfiguration.EmphasisStyle.muted // muted shows grayed streets and buildings - need to test this
+        }
+    }
+}

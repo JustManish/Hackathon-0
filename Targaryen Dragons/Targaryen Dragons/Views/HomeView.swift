@@ -10,11 +10,12 @@
  struct HomeView: View {
      @State private var mapState = MapViewState.noInput
      @EnvironmentObject var locationViewModel: LocationSearchViewModel
+     @ObservedObject var mapSettings = MapSettings()
 
      var body: some View {
          ZStack(alignment: .bottom) {
              ZStack(alignment: .top) {
-                 MapView(mapState: $mapState)
+                 MapView(mapState: $mapState).environmentObject(mapSettings)
                      .ignoresSafeArea()
 
                  if mapState == .searchingForLocation {
@@ -33,19 +34,37 @@
                      .padding(.leading)
                      .padding(.top, 4)
              }
-             
-             HStack {
-                 Spacer()
-                 Button {
-                    // TODO: handle current location
-                 } label: {
-                     Image(systemName: "location.circle")
-                         .imageScale(.large)
-                         .foregroundColor(.red)
+             HStack(alignment: .bottom) {
+                 if mapState == .mapSettingShown {
+                     MapSettingView().environmentObject(mapSettings)
                  }
-                 .padding(.bottom, 50.0)
-                 .padding(.trailing, 50.0)
+                 Spacer(minLength: 10)
+                 VStack {
+                     Button {
+                        // TODO: handle current location
+                     } label: {
+                         Image(systemName: "location.circle")
+                             .imageScale(.large)
+                             .foregroundColor(.red)
+                     }
+                     Button {
+                         if mapState == .mapSettingShown {
+                             mapState = .noInput
+                         } else {
+                             mapState = .mapSettingShown
+                         }
+                     } label: {
+                         Image(systemName: "gearshape.fill")
+                     }
+                     .frame(width: 35, height: 35)
+                     .foregroundColor(Color.white)
+                     .background(Color.blue)
+                 .cornerRadius(5)
+                 }
              }
+             .padding(10)
+             .padding(.bottom, 30.0)
+             .padding(.trailing, 20.0)
              if mapState == .locationSelected || mapState == .polylineAdded {
                  //TODO: Action
              }
