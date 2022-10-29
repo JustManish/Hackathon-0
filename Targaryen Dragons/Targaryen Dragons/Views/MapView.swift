@@ -13,6 +13,7 @@
      case searchingForLocation
      case locationSelected
      case polylineAdded
+     case mapSettingShown
  }
 
  struct MapView: UIViewRepresentable {
@@ -20,8 +21,9 @@
      let mapView = MKMapView()
      @Binding var mapState: MapViewState
      @EnvironmentObject var locationViewModel: LocationSearchViewModel
+     @StateObject var mapConfigurationManager = MapConfiguartionManager.shared
 
-     func makeUIView(context: Context) -> some UIView {
+     func makeUIView(context: Context) -> some MKMapView {
          mapView.isRotateEnabled = false
          mapView.showsUserLocation = true
          mapView.userTrackingMode = .follow
@@ -35,6 +37,7 @@
          case .noInput:
              mapView.showsUserLocation = true
              context.coordinator.clearMapViewAndRecenterOnUserLocation()
+             updateMapType(mapView)
              break
          case .searchingForLocation:
              mapView.showsUserLocation = false
@@ -49,6 +52,10 @@
              break
          case .polylineAdded:
              mapView.showsUserLocation = false
+             break
+         case .mapSettingShown:
+             mapView.showsUserLocation = false
+             updateMapType(uiView)
              break
          }
      }
@@ -126,3 +133,25 @@
          }
      }
  }
+
+extension MapView {
+    
+    private func updateMapType(_ mapView: MKMapView) {
+        switch mapConfigurationManager.mapType {
+        case .standard(let elevation, let style):
+            let configuration = MKStandardMapConfiguration(elevationStyle: elevation.value,
+                                                           emphasisStyle: style.value)
+            configuration.pointOfInterestFilter = MKPointOfInterestFilter(including: [.atm,.airport,.beach,.nationalPark])
+            configuration.pointOfInterestFilter = MKPointOfInterestFilter(excluding: [.bakery])
+            configuration.showsTraffic = false
+            mapView.preferredConfiguration = MKStandardMapConfiguration(elevationStyle:elevation.value, emphasisStyle: style.value)
+            
+        case .hybrid(let elevation, _):
+            mapView.preferredConfiguration = MKHybridMapConfiguration(elevationStyle: elevation.value)// this uses satelite images and road names, can se the globe in realistic
+            
+        case .image(let elevation, _):
+            
+            mapView.preferredConfiguration = MKImageryMapConfiguration(elevationStyle: elevation.value) //flat - just images dont see the globe, realistic 3D realistic building can see the globe
+        }
+    }
+}

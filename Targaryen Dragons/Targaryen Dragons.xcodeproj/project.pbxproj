@@ -10,6 +10,9 @@
 		31AA1886290A498200079CA8 /* Targaryen_DragonsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31AA1885290A498200079CA8 /* Targaryen_DragonsApp.swift */; };
 		31AA188A290A498500079CA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AA1889290A498500079CA8 /* Assets.xcassets */; };
 		31AA188D290A498500079CA8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31AA188C290A498500079CA8 /* Preview Assets.xcassets */; };
+		4C509EEA290CF0BB0099C761 /* MapConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509EE8290CF0BB0099C761 /* MapConfigurationView.swift */; };
+		4C509EEB290CF0BB0099C761 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509EE9290CF0BB0099C761 /* LookAroundView.swift */; };
+		4C509EED290CF0DF0099C761 /* MapConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509EEC290CF0DF0099C761 /* MapConfigurationManager.swift */; };
 		DF3BED7A290CE1CB009D2CE5 /* MKRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */; };
 		DFB4C7A8290A8A9300879254 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A7290A8A9300879254 /* WidgetKit.framework */; };
 		DFB4C7AA290A8A9300879254 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A9290A8A9300879254 /* SwiftUI.framework */; };
@@ -65,6 +68,9 @@
 		31AA1889290A498500079CA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31AA188C290A498500079CA8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31AA189C290C02A700079CA8 /* bandra_west_to_gateway_of_india.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = bandra_west_to_gateway_of_india.gpx; sourceTree = "<group>"; };
+		4C509EE8290CF0BB0099C761 /* MapConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConfigurationView.swift; sourceTree = "<group>"; };
+		4C509EE9290CF0BB0099C761 /* LookAroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
+		4C509EEC290CF0DF0099C761 /* MapConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConfigurationManager.swift; sourceTree = "<group>"; };
 		DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKRoute+Extension.swift"; sourceTree = "<group>"; };
 		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4C7A7290A8A9300879254 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -201,6 +207,8 @@
 				DFD50A3F290BBD0D001686DE /* HomeView.swift */,
 				DFD50A41290BBD2B001686DE /* DynamicActionButton.swift */,
 				DFD50A43290BBD52001686DE /* DirectionsListView.swift */,
+				4C509EE9290CF0BB0099C761 /* LookAroundView.swift */,
+				4C509EE8290CF0BB0099C761 /* MapConfigurationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -218,6 +226,7 @@
 			children = (
 				DFB4C7C3290A94EF00879254 /* LiveActivityManager.swift */,
 				DFD50A4B290BBDD4001686DE /* LocationManager.swift */,
+				4C509EEC290CF0DF0099C761 /* MapConfigurationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -323,9 +332,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C509EED290CF0DF0099C761 /* MapConfigurationManager.swift in Sources */,
 				DFB4C7B7290A8A9500879254 /* OrderStatus.intentdefinition in Sources */,
 				DF3BED7A290CE1CB009D2CE5 /* MKRoute+Extension.swift in Sources */,
+				4C509EEB290CF0BB0099C761 /* LookAroundView.swift in Sources */,
 				DFD50A38290BBC8E001686DE /* MapView.swift in Sources */,
+				4C509EEA290CF0BB0099C761 /* MapConfigurationView.swift in Sources */,
 				DFD50A3A290BBCB8001686DE /* LocationSearchResultView.swift in Sources */,
 				DFD50A40290BBD0D001686DE /* HomeView.swift in Sources */,
 				DFD50A4C290BBDD4001686DE /* LocationManager.swift in Sources */,
