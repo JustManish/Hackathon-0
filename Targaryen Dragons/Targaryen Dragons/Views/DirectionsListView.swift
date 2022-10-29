@@ -12,7 +12,7 @@
 
      let routeSteps: [RouteStep]
 
-     @StateObject private var locationManager: LocationManager = LocationManager.shared
+     //@StateObject private var locationManager: LocationManager = LocationManager.shared
 
      var body: some View {
          List(routeSteps) { routeStep in

@@ -13,9 +13,21 @@
  class LocationSearchViewModel: NSObject, ObservableObject {
 
      @Published var results = [MKLocalSearchCompletion]()
-     @Published var routeSteps: [RouteStep] =  []
+     //@Published var routeSteps: [RouteStep] =  []
+     @Published var route: MKRoute?
      @Published var selectedLocation: DragonLocation?
      @Published var expectedArrivalTime: String?
+     @Published var lookAroundScene : MKLookAroundScene?
+     
+     let lookAroundControler = MKLookAroundViewController()
+     
+     var routeSteps: [RouteStep] {
+         if let route{
+            return route.steps.map { RouteStep(step: $0) }
+         } else {
+            return []
+         }
+     }
 
      private let searchCompleter = MKLocalSearchCompleter()
      var queryFragment: String = "" {
@@ -42,7 +54,7 @@
              guard let item = response?.mapItems.first else { return }
              let coordinate = item.placemark.coordinate
              self.selectedLocation = DragonLocation(title: localSearch.title,
-                                                      coordinate: coordinate)
+                                                      coordinate: coordinate,mapItem: item)
              print("DEBUG: Location coordinates \(coordinate)")
          }
      }
@@ -72,7 +84,7 @@
              }
 
              guard let route = response?.routes.first else { return }
-             self.routeSteps = route.steps.map { RouteStep(step: $0) }
+             self.route = route
              // ----------- Code required to generate coordinates ---------
              route.printGPXCoordinatesForRoute()
              // ----------- Code required to generate coordinates ---------
@@ -85,6 +97,22 @@
          let formatter = DateFormatter()
          formatter.dateFormat = "hh:mm a"
          expectedArrivalTime = formatter.string(from: Date() + expectedTravelTime)
+     }
+     
+     /// Gets the `MKLookAroundScene` for a map item after loading it asynchronously if necessary.
+     /// - parameter mapItem: The  map item.
+     func lookAroundScene(for mapItem: MKMapItem) {
+         let sceneRequest = MKLookAroundSceneRequest(mapItem: mapItem)
+         sceneRequest.getSceneWithCompletionHandler { scene, error in
+             if let error {
+                 print("\(mapItem.placemark.title ?? "")====\(error)")
+                 self.lookAroundScene = nil
+                 return
+             }
+             DispatchQueue.main.async {
+                 self.lookAroundScene = scene
+             }
+         }
      }
  }
 

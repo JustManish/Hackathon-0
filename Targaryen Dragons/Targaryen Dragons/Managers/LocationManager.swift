@@ -24,6 +24,9 @@
  extension LocationManager: CLLocationManagerDelegate {
      func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
          guard let location = locations.first else { return }
+//         CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+//             self.userLocation = placemarks?.first
+//         }
          self.userLocation = location.coordinate
          locationManager.stopUpdatingLocation()
      }

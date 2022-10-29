@@ -14,9 +14,11 @@ struct HomeView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                MapView(mapState: $mapState)
-                    .ignoresSafeArea()
-                
+                GeometryReader { geometry in
+                    MapView(mapState: $mapState)
+                        .ignoresSafeArea()
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                }
                 if mapState == .searchingForLocation {
                     LocationSearchListView(mapState: $mapState)
                 } else if mapState == .noInput {
@@ -32,6 +34,16 @@ struct HomeView: View {
                 DynamicActionButton(mapState: $mapState)
                     .padding(.leading)
                     .padding(.top, 4)
+            }
+            if mapState == .polylineAdded && locationViewModel.lookAroundScene != nil{
+                HStack {
+                    LookAroundView()
+                        .frame(width: 165,height: 100,alignment: .bottomLeading)
+                        .cornerRadius(5)
+                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                    Spacer()
+                }
+                .padding(10)
             }
             HStack(alignment: .bottom) {
                 if mapState == .mapSettingShown {
