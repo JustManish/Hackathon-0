@@ -57,7 +57,8 @@
      }
 
      func getDestinationRoute(from userLocation: CLLocationCoordinate2D,
-                              to destination: CLLocationCoordinate2D, completion: @escaping(MKRoute) -> Void) {
+                              to destination: CLLocationCoordinate2D,
+                              completion: @escaping(MKRoute) -> Void) {
          let userPlacemark = MKPlacemark(coordinate: userLocation)
          let destPlacemark = MKPlacemark(coordinate: destination)
          let request = MKDirections.Request()
@@ -72,22 +73,9 @@
 
              guard let route = response?.routes.first else { return }
              self.routeSteps = route.steps.map { RouteStep(step: $0) }
-
              // ----------- Code required to generate coordinates ---------
-             var coordinates = [String]()
-             for (index, item) in route.steps.enumerated() {
-                 
-                 let str = "<wpt lat="
-                     .appending("\(item.polyline.coordinate.latitude)")
-                     .appending(" lon=")
-                     .appending("\(item.polyline.coordinate.longitude)")
-                     .appending("> <name> Point \(index) </name> </wpt>")
-                 
-                 coordinates.append(str)
-             }
-             print("coordinates wpt \(coordinates)")
+             route.printGPXCoordinatesForRoute()
              // ----------- Code required to generate coordinates ---------
-             
              self.getExpectedTravelTime(with: route.expectedTravelTime)
              completion(route)
          }

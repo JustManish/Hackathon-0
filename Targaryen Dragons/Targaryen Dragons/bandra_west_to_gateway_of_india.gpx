@@ -1,65 +1,86 @@
 <?xml version="1.0"?>
 <gpx version="1.1" creator="Xcode">
 <wpt lat="19.020037299999988" lon="72.85359069999998">
+    <time>1970-01-01T00:00:00Z</time>
     <name> Point 0 </name>
 </wpt>
 <wpt lat="19.020348199999997" lon="72.8535018">
+    <time>1970-01-01T00:00:03Z</time>
     <name> Point 1 </name>
 </wpt>
 <wpt lat="19.021478199999986" lon="72.85178689999995">
+    <time>1970-01-01T00:00:7Z</time>
     <name> Point 2 </name>
 </wpt>
 <wpt lat="19.021936199999992" lon="72.85108079999998">
+    <time>1970-01-01T00:00:15Z</time>
     <name> Point 3 </name>
 </wpt>
 <wpt lat="19.019832199999993" lon="72.84934070000006">
+    <time>1970-01-01T00:00:25Z</time>
     <name> Point 4 </name> </wpt>
 <wpt lat="19.01158560000002" lon="72.84340400000005">
+    <time>1970-01-01T00:00:35Z</time>
     <name> Point 5 </name>
 </wpt>
 <wpt lat="19.006477299999997" lon="72.84067890000003">
+    <time>1970-01-01T00:00:45Z</time>
     <name> Point 6 </name>
 </wpt>
 <wpt lat="18.999251199999986" lon="72.83765199999999">
+    <time>1970-01-01T00:00:55Z</time>
     <name> Point 7 </name>
 </wpt>
 <wpt lat="18.977114099999987" lon="72.83358579999998">
+    <time>1970-01-01T00:00:59Z</time>
     <name> Point 8 </name>
 </wpt>
 <wpt lat="18.964427000000004" lon="72.83218970000001">
+    <time>1970-01-01T00:01:10Z</time>
     <name> Point 9 </name>
 </wpt>
 <wpt lat="18.93625799999998" lon="72.8338329">
+    <time>1970-01-01T00:01:20Z</time>
     <name> Point 10 </name>
 </wpt>
 <wpt lat="18.933497999999997" lon="72.83207869999998">
+    <time>1970-01-01T00:01:30Z</time>
     <name> Point 11 </name>
 </wpt>
 <wpt lat="18.932790200000003" lon="72.83130090000003">
+    <time>1970-01-01T00:01:40Z</time>
     <name> Point 12 </name>
 </wpt>
 <wpt lat="18.931842199999995" lon="72.8313287">
+    <time>1970-01-01T00:01:50Z</time>
     <name> Point 13 </name>
 </wpt>
 <wpt lat="18.926236099999993" lon="72.8315624">
+    <time>1970-01-01T00:01:59Z</time>
     <name> Point 14 </name>
 </wpt>
 <wpt lat="18.9252602" lon="72.8325558">
+    <time>1970-01-01T00:02:10Z</time>
     <name> Point 15 </name>
 </wpt>
 <wpt lat="18.923374199999984" lon="72.8338737">
+    <time>1970-01-01T00:02:20Z</time>
     <name> Point 16 </name>
 </wpt>
 <wpt lat="18.92293229999999" lon="72.83335879999998">
+    <time>1970-01-01T00:02:30Z</time>
     <name> Point 17 </name>
 </wpt>
 <wpt lat="18.92185709999998" lon="72.83357270000002">
+    <time>1970-01-01T00:02:40Z</time>
     <name> Point 18 </name>
 </wpt>
 <wpt lat="18.92185709999998" lon="72.83357270000002">
+    <time>1970-01-01T00:02:50Z</time>
     <name> Point 19 </name>
 </wpt>
 <wpt lat="18.922148999999994" lon="72.83436580000003">
+    <time>1970-01-01T00:10:00Z</time>
     <name> Point 20 </name>
 </wpt>
 </gpx>

@@ -51,7 +51,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <LocationScenarioReference
-         identifier = "../../Targaryen Dragons/mumbai_to_bandra.gpx"
+         identifier = "../../Targaryen Dragons/bandra_west_to_gateway_of_india.gpx"
          referenceType = "0">
       </LocationScenarioReference>
    </LaunchAction>
