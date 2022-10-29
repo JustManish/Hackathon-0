@@ -13,6 +13,9 @@
 		4C509EEA290CF0BB0099C761 /* MapConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509EE8290CF0BB0099C761 /* MapConfigurationView.swift */; };
 		4C509EEB290CF0BB0099C761 /* LookAroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509EE9290CF0BB0099C761 /* LookAroundView.swift */; };
 		4C509EED290CF0DF0099C761 /* MapConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509EEC290CF0DF0099C761 /* MapConfigurationManager.swift */; };
+		4C509F0A290DAC570099C761 /* PresentationDetent+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509F09290DAC570099C761 /* PresentationDetent+Extension.swift */; };
+		4C509F0C290DAC6A0099C761 /* CustomSheetDetents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509F0B290DAC690099C761 /* CustomSheetDetents.swift */; };
+		4C509F0E290DAE530099C761 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C509F0D290DAE530099C761 /* ActionButton.swift */; };
 		DF3BED7A290CE1CB009D2CE5 /* MKRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */; };
 		DFB4C7A8290A8A9300879254 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A7290A8A9300879254 /* WidgetKit.framework */; };
 		DFB4C7AA290A8A9300879254 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A9290A8A9300879254 /* SwiftUI.framework */; };
@@ -71,6 +74,9 @@
 		4C509EE8290CF0BB0099C761 /* MapConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConfigurationView.swift; sourceTree = "<group>"; };
 		4C509EE9290CF0BB0099C761 /* LookAroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookAroundView.swift; sourceTree = "<group>"; };
 		4C509EEC290CF0DF0099C761 /* MapConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapConfigurationManager.swift; sourceTree = "<group>"; };
+		4C509F09290DAC570099C761 /* PresentationDetent+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PresentationDetent+Extension.swift"; sourceTree = "<group>"; };
+		4C509F0B290DAC690099C761 /* CustomSheetDetents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSheetDetents.swift; sourceTree = "<group>"; };
+		4C509F0D290DAE530099C761 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKRoute+Extension.swift"; sourceTree = "<group>"; };
 		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4C7A7290A8A9300879254 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -161,6 +167,7 @@
 		DF3BED78290CE1B6009D2CE5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4C509F09290DAC570099C761 /* PresentationDetent+Extension.swift */,
 				DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */,
 			);
 			path = Extension;
@@ -200,6 +207,7 @@
 		DFD50A34290BBC60001686DE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4C509F0B290DAC690099C761 /* CustomSheetDetents.swift */,
 				DFD50A37290BBC8E001686DE /* MapView.swift */,
 				DFD50A39290BBCB8001686DE /* LocationSearchResultView.swift */,
 				DFD50A3B290BBCD6001686DE /* LocationSearchListView.swift */,
@@ -209,6 +217,7 @@
 				DFD50A43290BBD52001686DE /* DirectionsListView.swift */,
 				4C509EE9290CF0BB0099C761 /* LookAroundView.swift */,
 				4C509EE8290CF0BB0099C761 /* MapConfigurationView.swift */,
+				4C509F0D290DAE530099C761 /* ActionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -335,8 +344,10 @@
 				4C509EED290CF0DF0099C761 /* MapConfigurationManager.swift in Sources */,
 				DFB4C7B7290A8A9500879254 /* OrderStatus.intentdefinition in Sources */,
 				DF3BED7A290CE1CB009D2CE5 /* MKRoute+Extension.swift in Sources */,
+				4C509F0E290DAE530099C761 /* ActionButton.swift in Sources */,
 				4C509EEB290CF0BB0099C761 /* LookAroundView.swift in Sources */,
 				DFD50A38290BBC8E001686DE /* MapView.swift in Sources */,
+				4C509F0A290DAC570099C761 /* PresentationDetent+Extension.swift in Sources */,
 				4C509EEA290CF0BB0099C761 /* MapConfigurationView.swift in Sources */,
 				DFD50A3A290BBCB8001686DE /* LocationSearchResultView.swift in Sources */,
 				DFD50A40290BBD0D001686DE /* HomeView.swift in Sources */,
@@ -350,6 +361,7 @@
 				31AA1886290A498200079CA8 /* Targaryen_DragonsApp.swift in Sources */,
 				DFD50A42290BBD2B001686DE /* DynamicActionButton.swift in Sources */,
 				DFB4C7C4290A94EF00879254 /* LiveActivityManager.swift in Sources */,
+				4C509F0C290DAC6A0099C761 /* CustomSheetDetents.swift in Sources */,
 				DFD50A3E290BBCF6001686DE /* LocationSearchActivationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

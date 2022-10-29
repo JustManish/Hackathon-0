@@ -1,17 +1,21 @@
 //
- //  HomeView.swift
- //  Targaryen Dragons
- //
- //  Created by Manish Patidar on 28/10/22.
- //
+//  HomeView.swift
+//  Targaryen Dragons
+//
+//  Created by Manish Patidar on 28/10/22.
+//
 
- import SwiftUI
+import SwiftUI
 
 struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @State var isDirectionListVisible = false
     
     var body: some View {
+        let binding = Binding<Bool>(get: { mapState == .polylineAdded && isDirectionListVisible }, set: {value in
+            isDirectionListVisible = value
+        })
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
                 GeometryReader { geometry in
@@ -31,9 +35,17 @@ struct HomeView: View {
                         }
                 }
                 
-                DynamicActionButton(mapState: $mapState)
-                    .padding(.leading)
-                    .padding(.top, 4)
+                HStack {
+                    DynamicActionButton(mapState: $mapState)
+                    Spacer()
+                    if mapState == .polylineAdded {
+                        SystemImageActionButton(imageName: "arrow.triangle.branch") {
+                            isDirectionListVisible = true
+                        }
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 4)
             }
             if mapState == .polylineAdded && locationViewModel.lookAroundScene != nil{
                 HStack {
@@ -43,7 +55,7 @@ struct HomeView: View {
                         .transition(.asymmetric(insertion: .scale, removal: .opacity))
                     Spacer()
                 }
-                .padding(10)
+                .padding(30)
             }
             HStack(alignment: .bottom) {
                 if mapState == .mapSettingShown {
@@ -80,6 +92,11 @@ struct HomeView: View {
                 //TODO: Action
             }
         }
+        .sheet(isPresented: binding) {
+            DirectionsListView()
+                .presentationDetents([.tiny,.medium, .large])
+                .presentationDragIndicator(.automatic)
+        }
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(LocationManager.shared.$userLocation) { location in
             if let location = location {
@@ -89,8 +106,8 @@ struct HomeView: View {
     }
 }
 
- struct HomeView_Previews: PreviewProvider {
-     static var previews: some View {
-         HomeView()
-     }
- }
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
