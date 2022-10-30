@@ -14,6 +14,7 @@
      case locationSelected
      case polylineAdded
      case mapSettingShown
+     case startNavigating
  }
 
  struct MapView: UIViewRepresentable {
@@ -70,6 +71,9 @@
          case .mapSettingShown:
              mapView.showsUserLocation = false
              updateMapType(uiView)
+             break
+         case .startNavigating:
+             locationViewModel.startLiveActivity()
              break
          }
      }

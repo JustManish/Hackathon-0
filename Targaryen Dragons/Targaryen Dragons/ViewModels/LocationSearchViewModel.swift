@@ -123,6 +123,18 @@
              }
          }
      }
+
+     func startLiveActivity() {
+         LiveActivityManager().start()
+     }
+     
+     func updateLiveActivity() {
+         LiveActivityManager().update()
+     }
+     
+     func endLiveActivity() {
+         LiveActivityManager().stop()
+     }
  }
 
  // MARK: - MKLocalSearchCompleterDelegate
