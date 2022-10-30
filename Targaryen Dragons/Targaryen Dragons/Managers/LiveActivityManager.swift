@@ -12,22 +12,16 @@ struct LiveActivityManager {
     
     // MARK: - Lifecycle Methods
     
-    func start(with startedTime: Date,
-               timeInterval: Double,
+    func start(estimatedTime: Date,
                instruction: String,
                distance: Double) {
 
-        
-//    }
-//    func start(timeInterval:Double, instruction: String, distance: Double) {
-        
         let attributes = OrderStatusAttributes(numberOfItems: 1,
-                                               customerNumber: "8249406457")
+                                               customerNumber: "8249406457",
+                                               startedTime: Date())
 
-        let estimatedTime = Date().addingTimeInterval(timeInterval)
         let direction = Direction.getDirectionFromInstruction(instruction)
         let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John",
-                                                                    startedTime: startedTime,
                                                                     estimatedDeliveryTime: estimatedTime,
                                                                     direction: direction,
                                                                     instruction: distance.distanceString)
@@ -44,17 +38,13 @@ struct LiveActivityManager {
         }
     }
     
-    func update(with startedTime: Date,
-                estimatedTime: Date,
+    func update(estimatedTime: Date,
                 instruction: String,
                 distance: Double) {
         
         Task {
-            print("startedTime \(startedTime) estimatedTime \(estimatedTime)")
             let direction = Direction.getDirectionFromInstruction(instruction)
-            
             let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John",
-                                                                          startedTime: startedTime,
                                                                           estimatedDeliveryTime: estimatedTime,
                                                                           direction: direction,
                                                                           instruction: distance.distanceString)

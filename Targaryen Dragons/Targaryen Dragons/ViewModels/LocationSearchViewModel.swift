@@ -176,13 +176,10 @@ extension LocationSearchViewModel {
     /// Functions to handle live activities
     func startLiveActivity() {
         guard let step = nextStep else {return}
+        let timeInterval = totalExpectedTime - totalTraveledTime
+        let estimatedTime: Date = Date().addingTimeInterval(timeInterval)
         
-        tripStartedTime = Date()
-        
-        print("totalExpectedTime \(totalExpectedTime)  totalTraveledTime \(totalTraveledTime)")
-        
-        liveActivityManager.start(with: tripStartedTime,
-                                  timeInterval: totalExpectedTime - totalTraveledTime,
+        liveActivityManager.start(estimatedTime: estimatedTime,
                                   instruction: step.instructions,
                                   distance: step.distance)
     }
@@ -191,9 +188,7 @@ extension LocationSearchViewModel {
         guard let step = nextStep else {return}
         let timeInterval = totalExpectedTime - totalTraveledTime
         let estimatedTime: Date = Date().addingTimeInterval(timeInterval)
-        
-        liveActivityManager.update(with: tripStartedTime,
-                                   estimatedTime: estimatedTime,
+        liveActivityManager.update(estimatedTime: estimatedTime,
                                    instruction: step.instructions,
                                    distance: step.distance)
     }

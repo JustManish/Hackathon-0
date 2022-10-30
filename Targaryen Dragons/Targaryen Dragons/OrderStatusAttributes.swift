@@ -13,7 +13,6 @@ struct OrderStatusAttributes: ActivityAttributes {
 
     public struct ContentState: Codable, Hashable {
         var driverName: String
-        var startedTime: Date
         var estimatedDeliveryTime: Date
         var direction: Direction
         var instruction: String
@@ -22,6 +21,7 @@ struct OrderStatusAttributes: ActivityAttributes {
     var numberOfItems: Int
     var customerNumber: String
     var id = UUID()
+    var startedTime: Date
 }
 
 enum Direction: String, Codable{
