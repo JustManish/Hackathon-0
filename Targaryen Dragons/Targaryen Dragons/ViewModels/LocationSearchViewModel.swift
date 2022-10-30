@@ -151,20 +151,6 @@
          return 0.0
      }
      
-     /// Functions to handle live activities
-     func startLiveActivity() {
-         guard let step = nextStep else {return}
-         LiveActivityManager().start(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
-     }
-     
-     func updateLiveActivity() {
-         guard let step = nextStep else {return}
-         LiveActivityManager().update(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
-     }
-     
-     func endLiveActivity() {
-         LiveActivityManager().stop()
-     }
      func resetMap() {
          LiveActivityManager().stop()
          if let timer {
@@ -185,13 +171,15 @@
 
 // MARK: - LiveActivity Life-Cycle Methods
 extension LocationSearchViewModel {
-    
+    /// Functions to handle live activities
     func startLiveActivity() {
-        LiveActivityManager().start()
+        guard let step = nextStep else {return}
+        LiveActivityManager().start(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
     }
     
     func updateLiveActivity() {
-        LiveActivityManager().update()
+        guard let step = nextStep else {return}
+        LiveActivityManager().update(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
     }
     
     func endLiveActivity() {
