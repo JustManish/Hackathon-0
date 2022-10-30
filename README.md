@@ -4,7 +4,7 @@
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://mutualmobile.com)
 
 ## Idea: 
-Utilized MapKit and Live Activities to show Map which support different Map Configuration(Standard, Hybrid, Image) with different Elevation(.realistic, .flat) and emphasis(.default, .muted) style and Live Route Tracking with Look Around 3-D View at available places and showing updates of Route Tracking as Live Activity.
+Utilized `MapKit` and `Live Activities` to show Map which support different Map Configuration(`Standard, Hybrid, Image`) with different Elevation(`.realistic, .flat`) and emphasis(`.default, .muted`) style and Live Route Tracking with Look `Around 3-D View` at available places and showing updates of Route Tracking as `Live Activity on Lock screen & on Dynamic Island`.
 
 ## Features
 - Different Map Configuration
