@@ -12,18 +12,8 @@
      @EnvironmentObject var viewModel: LocationSearchViewModel
 
      var body: some View {
-         Button {
-             withAnimation(.spring()) {
-                 actionForState(mapState)
-             }
-         } label: {
-             Image(systemName: imageNameForState(mapState))
-                 .font(.title2)
-                 .foregroundColor(.black)
-                 .padding()
-                 .background(.white)
-                 .clipShape(Circle())
-                 .shadow(color: .black, radius: 6)
+         SystemImageActionButton(imageName: imageNameForState(mapState)) {
+             actionForState(mapState)
          }
          .frame(maxWidth: .infinity, alignment: .leading)
      }
@@ -34,9 +24,11 @@
              print("DEBUG: No input")
          case .searchingForLocation:
              mapState = .noInput
-         case .locationSelected, .polylineAdded, .mapSettingShown:
+         case .locationSelected, .mapSettingShown, .startNavigating:
              mapState = .noInput
              viewModel.selectedLocation = nil
+         case .polylineAdded:
+             mapState = .startNavigating
          }
      }
 
@@ -44,8 +36,10 @@
          switch state {
          case .noInput:
              return "line.3.horizontal"
-         case .searchingForLocation, .locationSelected, .polylineAdded, .mapSettingShown:
+         case .searchingForLocation, .locationSelected, .mapSettingShown, .polylineAdded:
              return "arrow.left"
+         case .startNavigating:
+             return "arrow.right"
          }
      }
  }

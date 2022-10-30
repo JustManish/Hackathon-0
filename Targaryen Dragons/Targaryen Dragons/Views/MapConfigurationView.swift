@@ -40,15 +40,21 @@ struct MapConfigurationView: View {
                 .padding([.leading, .trailing], 16)
         }
         .onChange(of: mapType) { newValue in
-            let new = newValue.changeConfig(type: mapType, elevation: elevationType, style: emphesisStyle)
+            let new = newValue.changeConfig(type: mapType,
+                                            elevation: elevationType,
+                                            style: emphesisStyle)
             mapSettings.mapType = new
         }
         .onChange(of: elevationType) { newValue in
-            let new = mapType.changeConfig(type: mapType, elevation: elevationType, style: emphesisStyle)
+            let new = mapType.changeConfig(type: mapType,
+                                           elevation: elevationType,
+                                           style: emphesisStyle)
             mapSettings.mapType = new
         }
         .onChange(of: emphesisStyle) { newValue in
-            let new = mapType.changeConfig(type: mapType, elevation: elevationType, style: emphesisStyle)
+            let new = mapType.changeConfig(type: mapType,
+                                           elevation: elevationType,
+                                           style: emphesisStyle)
             mapSettings.mapType = new
         }
         .padding(10)

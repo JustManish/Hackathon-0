@@ -12,7 +12,7 @@ extension MKRoute {
     
      func printGPXCoordinatesForRoute() {
         var coordinates = ""
-        for (index, item) in steps.enumerated() {
+         for (index, item) in steps.enumerated() {
             
             let gpx = """
                         <wpt lat="\(item.polyline.coordinate.latitude)" lon="\(item.polyline.coordinate.longitude)">

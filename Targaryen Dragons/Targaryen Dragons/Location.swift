@@ -6,8 +6,11 @@
  //
 
  import CoreLocation
+ import MapKit
 
  struct DragonLocation {
      let title: String
      let coordinate: CLLocationCoordinate2D
+     let mapItem: MKMapItem
+     
  }

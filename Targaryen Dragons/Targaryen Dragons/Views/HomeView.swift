@@ -1,22 +1,26 @@
 //
- //  HomeView.swift
- //  Targaryen Dragons
- //
- //  Created by Manish Patidar on 28/10/22.
- //
+//  HomeView.swift
+//  Targaryen Dragons
+//
+//  Created by Manish Patidar on 28/10/22.
+//
 
- import SwiftUI
+import SwiftUI
+import MapKit
 
 struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @State var isDirectionListVisible = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                MapView(mapState: $mapState)
-                    .ignoresSafeArea()
-                
+                GeometryReader { geometry in
+                    MapView(mapState: $mapState)
+                        .ignoresSafeArea()
+                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                }
                 if mapState == .searchingForLocation {
                     LocationSearchListView(mapState: $mapState)
                 } else if mapState == .noInput {
@@ -29,9 +33,27 @@ struct HomeView: View {
                         }
                 }
                 
-                DynamicActionButton(mapState: $mapState)
-                    .padding(.leading)
-                    .padding(.top, 4)
+                HStack {
+                    DynamicActionButton(mapState: $mapState)
+                    if mapState == .polylineAdded {
+                        SystemImageActionButton(imageName: "arrow.triangle.branch") {
+                            isDirectionListVisible.toggle()
+                        }
+                    }
+                }
+                .padding(.leading)
+                .padding(.top, 4)
+                .padding(.trailing, 60)
+            }
+            if mapState == .polylineAdded && locationViewModel.lookAroundScene != nil {
+                HStack {
+                    MapLookAroundView()
+                        .frame(width: 165,height: 100,alignment: .bottomLeading)
+                        .cornerRadius(5)
+                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                    Spacer()
+                }
+                .padding(30)
             }
             HStack(alignment: .bottom) {
                 if mapState == .mapSettingShown {
@@ -48,7 +70,7 @@ struct HomeView: View {
                     }
                     Button {
                         if mapState == .mapSettingShown {
-                            mapState = .noInput
+                            mapState = .polylineAdded
                         } else {
                             mapState = .mapSettingShown
                         }
@@ -68,6 +90,11 @@ struct HomeView: View {
                 //TODO: Action
             }
         }
+        .sheet(isPresented: $isDirectionListVisible) {
+            DirectionsListView()
+                .presentationDetents([.tiny,.medium, .large])
+                .presentationDragIndicator(.automatic)
+        }
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(LocationManager.shared.$userLocation) { location in
             if let location = location {
@@ -77,8 +104,8 @@ struct HomeView: View {
     }
 }
 
- struct HomeView_Previews: PreviewProvider {
-     static var previews: some View {
-         HomeView()
-     }
- }
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
