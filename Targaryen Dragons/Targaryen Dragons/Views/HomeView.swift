@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct HomeView: View {
     @State private var mapState = MapViewState.noInput
