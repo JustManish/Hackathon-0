@@ -9,11 +9,6 @@ import Foundation
 import ActivityKit
 
 struct LiveActivityManager {
-//    static let shared = LiveActivityManager()
-//    private init() {}
-    
-//    let attributes: OrderStatusAttributes
-//    let orderStatus: OrderStatusAttributes.OrderStatus
     
     // MARK: - Lifecycle Methods
     

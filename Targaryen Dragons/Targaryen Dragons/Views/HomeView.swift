@@ -19,7 +19,9 @@ struct HomeView: View {
                 GeometryReader { geometry in
                     MapView(mapState: $mapState)
                         .ignoresSafeArea()
-                        .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                        .frame(width: geometry.size.width,
+                               height: geometry.size.height,
+                               alignment: .center)
                 }
                 if mapState == .searchingForLocation {
                     LocationSearchListView(mapState: $mapState)
@@ -48,7 +50,7 @@ struct HomeView: View {
             if mapState == .polylineAdded && locationViewModel.lookAroundScene != nil {
                 HStack {
                     MapLookAroundView()
-                        .frame(width: 165,height: 100,alignment: .bottomLeading)
+                        .frame(width: 165, height: 100, alignment: .bottomLeading)
                         .cornerRadius(5)
                         .transition(.asymmetric(insertion: .scale, removal: .opacity))
                     Spacer()
@@ -60,7 +62,7 @@ struct HomeView: View {
                     MapConfigurationView()
                 }
                 Spacer(minLength: 10)
-                VStack {
+                VStack(spacing: 12) {
                     Button {
                         // TODO: handle current location
                     } label: {
@@ -85,7 +87,6 @@ struct HomeView: View {
             }
             .padding(10)
             .padding(.bottom, 30.0)
-            .padding(.trailing, 20.0)
             if mapState == .locationSelected || mapState == .polylineAdded {
                 //TODO: Action
             }

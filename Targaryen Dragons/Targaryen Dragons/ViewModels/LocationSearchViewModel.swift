@@ -31,9 +31,8 @@
      var routeSteps: [RouteStep] {
          if let route {
             return route.steps.map { RouteStep(step: $0) }
-         } else {
-            return []
          }
+         return []
      }
      var nextStep: MKRoute.Step? {
          var calculatedTime = 0.0
@@ -94,7 +93,6 @@
          let searchRequest = MKLocalSearch.Request()
          searchRequest.naturalLanguageQuery = localSearch.title.appending(localSearch.subtitle)
          let search = MKLocalSearch(request: searchRequest)
-
          search.start(completionHandler: completion)
      }
 
@@ -184,3 +182,19 @@
          self.results = completer.results
      }
  }
+
+// MARK: - LiveActivity Life-Cycle Methods
+extension LocationSearchViewModel {
+    
+    func startLiveActivity() {
+        LiveActivityManager().start()
+    }
+    
+    func updateLiveActivity() {
+        LiveActivityManager().update()
+    }
+    
+    func endLiveActivity() {
+        LiveActivityManager().stop()
+    }
+}
