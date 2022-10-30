@@ -18,14 +18,6 @@ Utilized MapKit and Live Activities to show Map which support different Map Conf
 - For Testing in simulator GPX file is used to get fixed route coordinates for Live Location tracking in map.
 - Information show in Live Activity are just simulation from Live Route Track and not any business information.
 
-> The overriding design goal for Markdown's
-> formatting syntax is to make it as readable
-> as possible. The idea is that a
-> Markdown-formatted document should be
-> publishable as-is, as plain text, without
-> looking like it's been marked up with tags
-> or formatting instructions.
-
 This text you see here is *actually- written in Markdown! To get a feel
 for Markdown's syntax, type some text into the left window and
 watch the results in the right.
