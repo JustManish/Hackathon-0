@@ -65,7 +65,8 @@
          case .polylineAdded:
              mapView.showsUserLocation = true
              //Trace the route here...
-             traceRoute(context: context)
+             //TODO: Route Tracing By Iterating over array of coordinates.
+             //traceRoute(context: context)
              print("coordinates count: \(self.locationViewModel.routeCoordinates.count)")
              break
          case .mapSettingShown:

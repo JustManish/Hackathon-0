@@ -70,7 +70,7 @@ struct HomeView: View {
                     }
                     Button {
                         if mapState == .mapSettingShown {
-                            mapState = .noInput
+                            mapState = .polylineAdded
                         } else {
                             mapState = .mapSettingShown
                         }
