@@ -133,7 +133,10 @@ struct LockScreenView: View {
                             .bold()
                     }
                     .font(.subheadline)
-                    BottomLineView(time: context.state.estimatedDeliveryTime, number: context.attributes.customerNumber)
+                    
+                    BottomLineView(startedTime: context.state.startedTime,
+                                   remainingTime: context.state.estimatedDeliveryTime,
+                                   number: context.attributes.customerNumber)
                 }
             }
         }.padding(15)
@@ -141,17 +144,21 @@ struct LockScreenView: View {
 }
 
 struct BottomLineView: View {
-    var time: Date
+    var startedTime: Date
+    var remainingTime: Date
     let number: String
     var body: some View {
         HStack {
             Image("delivery")
             VStack {
+                ProgressView(timerInterval: remainingTime...startedTime)
                 RoundedRectangle(cornerRadius: 5)
                     .stroke(style: StrokeStyle(lineWidth: 1,
                                                dash: [4]))
                     .frame(height: 10)
-                    .overlay(Text(time, style: .timer).font(.system(size: 8)).multilineTextAlignment(.center))
+//                    .overlay(Text(remainingTime, style: .timer)
+//                        .font(.system(size: 8))
+//                        .multilineTextAlignment(.center))
             }
             Image("home-address")
             Link(destination: URL(string: "targaryandragon://targaryen?number=\(number)")!) {

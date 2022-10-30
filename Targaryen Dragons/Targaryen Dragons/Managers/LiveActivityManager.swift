@@ -12,11 +12,25 @@ struct LiveActivityManager {
     
     // MARK: - Lifecycle Methods
     
-    func start(timeInterval:Double, instruction: String, distance: Double) {
+    func start(with startedTime: Date,
+               timeInterval: Double,
+               instruction: String,
+               distance: Double) {
+
+        
+//    }
+//    func start(timeInterval:Double, instruction: String, distance: Double) {
+        
         let attributes = OrderStatusAttributes(numberOfItems: 1,
                                                customerNumber: "8249406457")
 
-        let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John", estimatedDeliveryTime: Date().addingTimeInterval(timeInterval),direction: Direction.getDirectionFromInstruction(instruction),instruction: distance.distanceString)
+        let estimatedTime = Date().addingTimeInterval(timeInterval)
+        let direction = Direction.getDirectionFromInstruction(instruction)
+        let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John",
+                                                                    startedTime: startedTime,
+                                                                    estimatedDeliveryTime: estimatedTime,
+                                                                    direction: direction,
+                                                                    instruction: distance.distanceString)
                                                   
         do {
             let deliveryActivity = try Activity<OrderStatusAttributes>.request(
@@ -30,9 +44,20 @@ struct LiveActivityManager {
         }
     }
     
-    func update(timeInterval:Double, instruction: String, distance: Double) {
+    func update(with startedTime: Date,
+                estimatedTime: Date,
+                instruction: String,
+                distance: Double) {
+        
         Task {
-            let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John", estimatedDeliveryTime: Date().addingTimeInterval(timeInterval),direction: Direction.getDirectionFromInstruction(instruction),instruction: distance.distanceString)
+            print("startedTime \(startedTime) estimatedTime \(estimatedTime)")
+            let direction = Direction.getDirectionFromInstruction(instruction)
+            
+            let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John",
+                                                                          startedTime: startedTime,
+                                                                          estimatedDeliveryTime: estimatedTime,
+                                                                          direction: direction,
+                                                                          instruction: distance.distanceString)
             
             for activity in Activity<OrderStatusAttributes>.activities{
                 await activity.update(using: updatedDeliveryStatus)

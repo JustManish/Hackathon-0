@@ -18,11 +18,13 @@
      @Published var expectedArrivalTime: String?
      @Published var lookAroundScene : MKLookAroundScene?
      @Published var routeCoordinates: [CLLocationCoordinate2D] = []
+     var tripStartedTime = Date()
+     let liveActivityManager = LiveActivityManager()
      
      var expectedTravelTimePerCoordinates: Double {
          return totalExpectedTime / Double(routeCoordinates.count)
      }
-     var totalTraveledtime: Double {
+     var totalTraveledTime: Double {
          return expectedTravelTimePerCoordinates * Double(currentLocationIndex)
      }
      var totalExpectedTime: Double {
@@ -37,7 +39,7 @@
      var nextStep: MKRoute.Step? {
          var calculatedTime = 0.0
          for step in routeSteps{
-             if totalTraveledtime <= calculatedTime {
+             if totalTraveledTime <= calculatedTime {
                  return step.step
              }
              calculatedTime += expectedTimeForStep(step.step)
@@ -174,12 +176,26 @@ extension LocationSearchViewModel {
     /// Functions to handle live activities
     func startLiveActivity() {
         guard let step = nextStep else {return}
-        LiveActivityManager().start(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
+        
+        tripStartedTime = Date()
+        
+        print("totalExpectedTime \(totalExpectedTime)  totalTraveledTime \(totalTraveledTime)")
+        
+        liveActivityManager.start(with: tripStartedTime,
+                                  timeInterval: totalExpectedTime - totalTraveledTime,
+                                  instruction: step.instructions,
+                                  distance: step.distance)
     }
     
     func updateLiveActivity() {
         guard let step = nextStep else {return}
-        LiveActivityManager().update(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
+        let timeInterval = totalExpectedTime - totalTraveledTime
+        let estimatedTime: Date = Date().addingTimeInterval(timeInterval)
+        
+        liveActivityManager.update(with: tripStartedTime,
+                                   estimatedTime: estimatedTime,
+                                   instruction: step.instructions,
+                                   distance: step.distance)
     }
     
     func endLiveActivity() {

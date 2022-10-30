@@ -13,6 +13,7 @@ struct OrderStatusAttributes: ActivityAttributes {
 
     public struct ContentState: Codable, Hashable {
         var driverName: String
+        var startedTime: Date
         var estimatedDeliveryTime: Date
         var direction: Direction
         var instruction: String
