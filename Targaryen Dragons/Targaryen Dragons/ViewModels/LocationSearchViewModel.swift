@@ -16,7 +16,9 @@
      @Published var routeSteps: [RouteStep] =  []
      @Published var selectedLocation: DragonLocation?
      @Published var expectedArrivalTime: String?
-
+     @Published var routeCoordinates: [CLLocationCoordinate2D] = []
+     var currentLocationIndex: Int = 0
+     
      private let searchCompleter = MKLocalSearchCompleter()
      var queryFragment: String = "" {
          didSet {
@@ -30,6 +32,12 @@
          super.init()
          searchCompleter.delegate = self
          searchCompleter.queryFragment = queryFragment
+     }
+     
+     func incrementCurrentLocationIndex() {
+         if currentLocationIndex < routeCoordinates.count - 1 {
+             currentLocationIndex += 1
+         }
      }
 
      func selectLocation(_ localSearch: MKLocalSearchCompletion) {
@@ -73,8 +81,9 @@
 
              guard let route = response?.routes.first else { return }
              self.routeSteps = route.steps.map { RouteStep(step: $0) }
+             self.routeCoordinates = route.steps.flatMap(\.polyline.mkCoordinates)
              // ----------- Code required to generate coordinates ---------
-             route.printGPXCoordinatesForRoute()
+             route.polyline.printGPXCoordinatesForRoute()
              // ----------- Code required to generate coordinates ---------
              self.getExpectedTravelTime(with: route.expectedTravelTime)
              completion(route)

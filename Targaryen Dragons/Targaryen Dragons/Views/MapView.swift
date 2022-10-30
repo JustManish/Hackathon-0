@@ -22,13 +22,24 @@
      @Binding var mapState: MapViewState
      @EnvironmentObject var locationViewModel: LocationSearchViewModel
      @StateObject var mapConfigurationManager = MapConfiguartionManager.shared
-
+     @StateObject private var locationManager: LocationManager = LocationManager.shared
+     
+     //Mumbai Wadala West Coordinate
+     let startLocationCoordinate: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 19.020037299999988,
+                                                                     longitude: 72.85359069999998)
+     
      func makeUIView(context: Context) -> some MKMapView {
          mapView.isRotateEnabled = false
          mapView.showsUserLocation = true
          mapView.userTrackingMode = .follow
          mapView.isScrollEnabled = true
          mapView.delegate = context.coordinator
+         let region = MKCoordinateRegion(
+            center: startLocationCoordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+         )
+         //mapView.region = region
+         mapView.setRegion(region, animated: true)
          return mapView
      }
 
@@ -37,6 +48,7 @@
          case .noInput:
              mapView.showsUserLocation = true
              context.coordinator.clearMapViewAndRecenterOnUserLocation()
+             context.coordinator.addAndSelectAnnotation(withCoordinate: startLocationCoordinate)
              updateMapType(mapView)
              break
          case .searchingForLocation:
@@ -51,7 +63,10 @@
              }
              break
          case .polylineAdded:
-             mapView.showsUserLocation = false
+             mapView.showsUserLocation = true
+             //Trace the route here...
+             traceRoute(context: context)
+             print("coordinates count: \(self.locationViewModel.routeCoordinates.count)")
              break
          case .mapSettingShown:
              mapView.showsUserLocation = false
@@ -59,7 +74,24 @@
              break
          }
      }
-
+     
+     func traceRoute(context: Context) {
+         let _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+             let coordinate = self.locationViewModel.routeCoordinates[locationViewModel.currentLocationIndex]
+             let region = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
+                span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+             )
+             print("updating Region")
+             context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
+             self.mapView.setRegion(region, animated: true)
+             locationViewModel.incrementCurrentLocationIndex()
+             if locationViewModel.currentLocationIndex == locationViewModel.routeCoordinates.count - 1 {
+                 timer.invalidate()
+             }
+         }
+     }
+     
      func makeCoordinator() -> MapCoordinator {
          return MapCoordinator(parent: self)
      }
@@ -76,6 +108,7 @@
          init(parent: MapView) {
              self.parent = parent
              super.init()
+             self.userLocationCoordinate = parent.startLocationCoordinate
          }
 
          func resetToCurrentLocation() {
