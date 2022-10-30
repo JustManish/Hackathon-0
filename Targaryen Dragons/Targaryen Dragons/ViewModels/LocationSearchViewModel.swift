@@ -159,6 +159,27 @@
          }
          lookAroundScene = nil
      }
+     func updatePropertiesOnTimer() {
+         if(currentLocationIndex == 0){
+             startLiveActivity()
+         } else {
+             updateLiveActivity()
+         }
+         incrementCurrentLocationIndex()
+         if currentLocationIndex == routeCoordinates.count - 1 {
+             endLiveActivity()
+             timer?.invalidate()
+             timer = nil
+             resetCurrentLocationIndex()
+         }
+     }
+     
+     func checkAndDismissLiveActivity() {
+         if timer == nil {
+             endLiveActivity()
+         }
+     }
+     
  }
 
  // MARK: - MKLocalSearchCompleterDelegate

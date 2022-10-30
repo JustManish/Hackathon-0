@@ -81,27 +81,11 @@
      func traceRoute(_ context: Context) {
          locationViewModel.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
              let coordinate = self.locationViewModel.routeCoordinates[locationViewModel.currentLocationIndex]
-             let region = MKCoordinateRegion(
-                center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
-                span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-             )
-             print("updating Region")
-             self.mapView.setRegion(region, animated: true)
+             context.coordinator.setRegion(coordinate)
              //UIView.animate(withDuration: 1.0) {
-                 context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
+             context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
              //}
-             if(locationViewModel.currentLocationIndex == 0){
-                 locationViewModel.startLiveActivity()
-             } else {
-                 locationViewModel.updateLiveActivity()
-             }
-             locationViewModel.incrementCurrentLocationIndex()
-             if locationViewModel.currentLocationIndex == locationViewModel.routeCoordinates.count - 1 {
-                 locationViewModel.startLiveActivity()
-                 timer.invalidate()
-                 locationViewModel.timer = nil
-                 locationViewModel.resetCurrentLocationIndex()
-             }
+             locationViewModel.updatePropertiesOnTimer()
          }
      }
      
@@ -156,6 +140,15 @@
              anno.coordinate = coordinate
              parent.mapView.addAnnotation(anno)
              parent.mapView.selectAnnotation(anno, animated: true)
+         }
+         
+         func setRegion(_ coordinate: CLLocationCoordinate2D) {
+             let region = MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
+                span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03)
+             )
+             print("updating Region")
+             parent.mapView.setRegion(region, animated: true)
          }
 
          func configurePolyline(withDestinationCoordinate coordinate: CLLocationCoordinate2D) {

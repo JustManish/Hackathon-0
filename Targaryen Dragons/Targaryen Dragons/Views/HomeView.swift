@@ -91,6 +91,9 @@ struct HomeView: View {
                 //TODO: Action
             }
         }
+        .onAppear(perform: {
+            locationViewModel.checkAndDismissLiveActivity()
+        })
         .sheet(isPresented: $isDirectionListVisible) {
             DirectionsListView()
                 .presentationDetents([.tiny,.medium, .large])
