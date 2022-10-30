@@ -36,9 +36,9 @@
          switch state {
          case .noInput:
              return "line.3.horizontal"
-         case .searchingForLocation, .locationSelected, .startNavigating, .mapSettingShown:
+         case .searchingForLocation, .locationSelected, .mapSettingShown, .polylineAdded:
              return "arrow.left"
-         case .polylineAdded:
+         case .startNavigating:
              return "arrow.right"
          }
      }

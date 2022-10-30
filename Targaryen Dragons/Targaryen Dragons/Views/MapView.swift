@@ -79,7 +79,7 @@
      }
      
      func traceRoute(context: Context) {
-         let _ = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+         let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
              let coordinate = self.locationViewModel.routeCoordinates[locationViewModel.currentLocationIndex]
              let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
@@ -87,10 +87,13 @@
              )
              print("updating Region")
              context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
-             self.mapView.setRegion(region, animated: true)
-             locationViewModel.incrementCurrentLocationIndex()
+             UIView.animate(withDuration: 1.0) {
+                 self.mapView.setRegion(region, animated: true)
+                 locationViewModel.incrementCurrentLocationIndex()
+             }
              if locationViewModel.currentLocationIndex == locationViewModel.routeCoordinates.count - 1 {
                  timer.invalidate()
+                 locationViewModel.resetCurrentLocationIndex()
              }
          }
      }
@@ -125,7 +128,7 @@
                  center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude),
                  span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
              )
-
+             
              self.currentRegion = region
              parent.mapView.setRegion(region, animated: true)
          }

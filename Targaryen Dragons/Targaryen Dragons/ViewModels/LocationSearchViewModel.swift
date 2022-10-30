@@ -13,11 +13,11 @@
  class LocationSearchViewModel: NSObject, ObservableObject {
 
      @Published var results = [MKLocalSearchCompletion]()
-     //@Published var routeSteps: [RouteStep] =  []
      @Published var route: MKRoute?
      @Published var selectedLocation: DragonLocation?
      @Published var expectedArrivalTime: String?
      @Published var lookAroundScene : MKLookAroundScene?
+     @Published var routeCoordinates: [CLLocationCoordinate2D] = []
      
      var routeSteps: [RouteStep] {
          if let route {
@@ -27,7 +27,6 @@
          }
      }
 
-     @Published var routeCoordinates: [CLLocationCoordinate2D] = []
      var currentLocationIndex: Int = 0
      
      private let searchCompleter = MKLocalSearchCompleter()
@@ -49,6 +48,10 @@
          if currentLocationIndex < routeCoordinates.count - 1 {
              currentLocationIndex += 1
          }
+     }
+     
+     func resetCurrentLocationIndex() {
+         currentLocationIndex = .zero
      }
 
      func selectLocation(_ localSearch: MKLocalSearchCompletion) {
@@ -92,7 +95,6 @@
 
              guard let route = response?.routes.first else { return }
              self.route = route
-             self.routeSteps = route.steps.map { RouteStep(step: $0) }
              self.routeCoordinates = route.steps.flatMap(\.polyline.mkCoordinates)
              // ----------- Code required to generate coordinates ---------
              route.polyline.printGPXCoordinatesForRoute()
