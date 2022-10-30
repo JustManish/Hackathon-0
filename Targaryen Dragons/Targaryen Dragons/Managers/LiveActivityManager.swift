@@ -17,11 +17,11 @@ struct LiveActivityManager {
     
     // MARK: - Lifecycle Methods
     
-    func start() {
+    func start(timeInterval:Double, instruction: String, distance: Double) {
         let attributes = OrderStatusAttributes(numberOfItems: 1,
                                                customerNumber: "8249406457")
 
-        let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John 👨🏻‍🍳", estimatedDeliveryTime: Date().addingTimeInterval(15 * 60),direction: .left,instruction: "100 M")
+        let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John", estimatedDeliveryTime: Date().addingTimeInterval(timeInterval),direction: Direction.getDirectionFromInstruction(instruction),instruction: distance.distanceString)
                                                   
         do {
             let deliveryActivity = try Activity<OrderStatusAttributes>.request(
@@ -35,9 +35,9 @@ struct LiveActivityManager {
         }
     }
     
-    func update() {
+    func update(timeInterval:Double, instruction: String, distance: Double) {
         Task {
-            let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John 👨🏻‍🍳", estimatedDeliveryTime: Date().addingTimeInterval(14 * 60),direction: .right,instruction: "150 M")
+            let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John", estimatedDeliveryTime: Date().addingTimeInterval(timeInterval),direction: Direction.getDirectionFromInstruction(instruction),instruction: distance.distanceString)
             
             for activity in Activity<OrderStatusAttributes>.activities{
                 await activity.update(using: updatedDeliveryStatus)
@@ -60,4 +60,18 @@ struct LiveActivityManager {
             }
         }
     }
+}
+
+extension Double {
+    var distanceString: String {
+        if self > 1000 {
+            return "\((self / 1000).rounded(toPlaces:2)) KM"
+        } else {
+            return "\(self.rounded(toPlaces:2)) M"
+        }
+    }
+    func rounded(toPlaces places:Int) -> Double {
+            let divisor = pow(10.0, Double(places))
+            return (self * divisor).rounded() / divisor
+        }
 }

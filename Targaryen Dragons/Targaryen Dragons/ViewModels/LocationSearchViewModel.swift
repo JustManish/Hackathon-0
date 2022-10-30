@@ -19,6 +19,15 @@
      @Published var lookAroundScene : MKLookAroundScene?
      @Published var routeCoordinates: [CLLocationCoordinate2D] = []
      
+     var expectedTravelTimePerCoordinates: Double {
+         return totalExpectedTime / Double(routeCoordinates.count)
+     }
+     var totalTraveledtime: Double {
+         return expectedTravelTimePerCoordinates * Double(currentLocationIndex)
+     }
+     var totalExpectedTime: Double {
+         return route?.expectedTravelTime ?? 0.0
+     }
      var routeSteps: [RouteStep] {
          if let route {
             return route.steps.map { RouteStep(step: $0) }
@@ -26,7 +35,18 @@
             return []
          }
      }
-
+     var nextStep: MKRoute.Step? {
+         var calculatedTime = 0.0
+         for step in routeSteps{
+             if totalTraveledtime <= calculatedTime {
+                 return step.step
+             }
+             calculatedTime += expectedTimeForStep(step.step)
+         }
+         return nil
+     }
+     
+     var timer: Timer?
      var currentLocationIndex: Int = 0
      
      private let searchCompleter = MKLocalSearchCompleter()
@@ -126,16 +146,34 @@
          }
      }
 
+     func expectedTimeForStep(_ step: MKRoute.Step) -> Double {
+         if let route, totalExpectedTime != 0{
+             return (totalExpectedTime / route.distance) * step.distance
+         }
+         return 0.0
+     }
+     
+     /// Functions to handle live activities
      func startLiveActivity() {
-         LiveActivityManager().start()
+         guard let step = nextStep else {return}
+         LiveActivityManager().start(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
      }
      
      func updateLiveActivity() {
-         LiveActivityManager().update()
+         guard let step = nextStep else {return}
+         LiveActivityManager().update(timeInterval: totalExpectedTime - totalTraveledtime, instruction: step.instructions, distance: step.distance)
      }
      
      func endLiveActivity() {
          LiveActivityManager().stop()
+     }
+     func resetMap() {
+         LiveActivityManager().stop()
+         if let timer {
+             timer.invalidate()
+             self.timer = nil
+         }
+         lookAroundScene = nil
      }
  }
 

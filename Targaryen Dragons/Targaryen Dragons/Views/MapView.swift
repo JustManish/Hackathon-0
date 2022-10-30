@@ -74,30 +74,39 @@
              updateMapType(uiView)
              break
          case .startNavigating:
-             locationViewModel.startLiveActivity()
+             traceRoute(context)
              break
          }
      }
      
-     func traceRoute(context: Context) {
-         let _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+     func traceRoute(_ context: Context) {
+         locationViewModel.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
              let coordinate = self.locationViewModel.routeCoordinates[locationViewModel.currentLocationIndex]
              let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude),
                 span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
              )
              print("updating Region")
-             context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
-             UIView.animate(withDuration: 1.0) {
-                 self.mapView.setRegion(region, animated: true)
-                 locationViewModel.incrementCurrentLocationIndex()
+             self.mapView.setRegion(region, animated: true)
+             //UIView.animate(withDuration: 1.0) {
+                 context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
+             //}
+             if(locationViewModel.currentLocationIndex == 0){
+                 locationViewModel.startLiveActivity()
+             } else {
+                 locationViewModel.updateLiveActivity()
              }
+             locationViewModel.incrementCurrentLocationIndex()
              if locationViewModel.currentLocationIndex == locationViewModel.routeCoordinates.count - 1 {
+                 locationViewModel.startLiveActivity()
                  timer.invalidate()
+                 locationViewModel.timer = nil
                  locationViewModel.resetCurrentLocationIndex()
              }
          }
      }
+     
+     
      
      func makeCoordinator() -> MapCoordinator {
          return MapCoordinator(parent: self)

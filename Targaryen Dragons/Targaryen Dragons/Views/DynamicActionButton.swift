@@ -24,8 +24,10 @@
              print("DEBUG: No input")
          case .searchingForLocation:
              mapState = .noInput
+             viewModel.resetMap()
          case .locationSelected, .mapSettingShown, .startNavigating:
              mapState = .noInput
+             viewModel.resetMap()
              viewModel.selectedLocation = nil
          case .polylineAdded:
              mapState = .startNavigating
@@ -36,9 +38,9 @@
          switch state {
          case .noInput:
              return "line.3.horizontal"
-         case .searchingForLocation, .locationSelected, .mapSettingShown, .polylineAdded:
+         case .searchingForLocation, .locationSelected, .mapSettingShown, .startNavigating:
              return "arrow.left"
-         case .startNavigating:
+         case .polylineAdded:
              return "arrow.right"
          }
      }

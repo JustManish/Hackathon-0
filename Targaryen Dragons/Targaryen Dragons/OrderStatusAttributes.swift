@@ -40,4 +40,14 @@ extension Direction {
             return "arrow.up"
         }
     }
+    
+    static func getDirectionFromInstruction(_ instruction: String) -> Direction {
+        if instruction.contains((/left/.ignoresCase())){
+            return .left
+        } else if instruction.contains((/right/.ignoresCase())){
+            return .right
+        } else {
+            return .straight
+        }
+    }
 }
