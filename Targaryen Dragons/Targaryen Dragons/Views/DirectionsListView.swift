@@ -9,13 +9,10 @@
  import MapKit
 
  struct DirectionsListView: View {
-
-     let routeSteps: [RouteStep]
-
-     @StateObject private var locationManager: LocationManager = LocationManager.shared
-
+     @EnvironmentObject var locationViewModel : LocationSearchViewModel
+     
      var body: some View {
-         List(routeSteps) { routeStep in
+         List(locationViewModel.routeSteps) { routeStep in
              Text(routeStep.step.instructions)
                  .onTapGesture {
                      //TODO: Select Tapped Region on Map

@@ -13,10 +13,23 @@
  class LocationSearchViewModel: NSObject, ObservableObject {
 
      @Published var results = [MKLocalSearchCompletion]()
-     @Published var routeSteps: [RouteStep] =  []
+     //@Published var routeSteps: [RouteStep] =  []
+     @Published var route: MKRoute?
      @Published var selectedLocation: DragonLocation?
      @Published var expectedArrivalTime: String?
+     @Published var lookAroundScene : MKLookAroundScene?
+     
+     var routeSteps: [RouteStep] {
+         if let route {
+            return route.steps.map { RouteStep(step: $0) }
+         } else {
+            return []
+         }
+     }
 
+     @Published var routeCoordinates: [CLLocationCoordinate2D] = []
+     var currentLocationIndex: Int = 0
+     
      private let searchCompleter = MKLocalSearchCompleter()
      var queryFragment: String = "" {
          didSet {
@@ -31,6 +44,12 @@
          searchCompleter.delegate = self
          searchCompleter.queryFragment = queryFragment
      }
+     
+     func incrementCurrentLocationIndex() {
+         if currentLocationIndex < routeCoordinates.count - 1 {
+             currentLocationIndex += 1
+         }
+     }
 
      func selectLocation(_ localSearch: MKLocalSearchCompletion) {
          locationSearch(forLocalSearchCompletion: localSearch) { response, error in
@@ -42,7 +61,7 @@
              guard let item = response?.mapItems.first else { return }
              let coordinate = item.placemark.coordinate
              self.selectedLocation = DragonLocation(title: localSearch.title,
-                                                      coordinate: coordinate)
+                                                      coordinate: coordinate,mapItem: item)
              print("DEBUG: Location coordinates \(coordinate)")
          }
      }
@@ -72,9 +91,11 @@
              }
 
              guard let route = response?.routes.first else { return }
+             self.route = route
              self.routeSteps = route.steps.map { RouteStep(step: $0) }
+             self.routeCoordinates = route.steps.flatMap(\.polyline.mkCoordinates)
              // ----------- Code required to generate coordinates ---------
-             route.printGPXCoordinatesForRoute()
+             route.polyline.printGPXCoordinatesForRoute()
              // ----------- Code required to generate coordinates ---------
              self.getExpectedTravelTime(with: route.expectedTravelTime)
              completion(route)
@@ -87,6 +108,22 @@
          expectedArrivalTime = formatter.string(from: Date() + expectedTravelTime)
      }
      
+     /// Gets the `MKLookAroundScene` for a map item after loading it asynchronously if necessary.
+     /// - parameter mapItem: The  map item.
+     func lookAroundScene(for mapItem: MKMapItem) {
+         let sceneRequest = MKLookAroundSceneRequest(mapItem: mapItem)
+         sceneRequest.getSceneWithCompletionHandler { scene, error in
+             if let error {
+                 print("Debug: \(mapItem.placemark.title ?? "")====\(error)")
+                 self.lookAroundScene = nil
+                 return
+             }
+             DispatchQueue.main.async {
+                 self.lookAroundScene = scene
+             }
+         }
+     }
+
      func startLiveActivity() {
          LiveActivityManager().start()
      }
@@ -98,7 +135,6 @@
      func endLiveActivity() {
          LiveActivityManager().stop()
      }
-     
  }
 
  // MARK: - MKLocalSearchCompleterDelegate
