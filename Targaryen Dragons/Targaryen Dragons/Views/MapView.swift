@@ -38,7 +38,6 @@
             center: startLocationCoordinate,
             span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
          )
-         //mapView.region = region
          mapView.setRegion(region, animated: true)
          return mapView
      }

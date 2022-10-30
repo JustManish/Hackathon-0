@@ -14,10 +14,6 @@
      var body: some View {
          List(locationViewModel.routeSteps) { routeStep in
              Text(routeStep.step.instructions)
-                 .onTapGesture {
-                     //TODO: Select Tapped Region on Map
-                     //locationManager.selectRegionOnMap(selectedRegion: MKCoordinateRegion(routeStep.step.polyline.boundingMapRect))
-                 }
          }
      }
  }

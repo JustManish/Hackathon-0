@@ -9,11 +9,6 @@ import Foundation
 import ActivityKit
 
 struct LiveActivityManager {
-//    static let shared = LiveActivityManager()
-//    private init() {}
-    
-//    let attributes: OrderStatusAttributes
-//    let orderStatus: OrderStatusAttributes.OrderStatus
     
     // MARK: - Lifecycle Methods
     
@@ -21,7 +16,8 @@ struct LiveActivityManager {
         let attributes = OrderStatusAttributes(numberOfItems: 1,
                                                customerNumber: "8249406457")
 
-        let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John 👨🏻‍🍳", estimatedDeliveryTime: Date().addingTimeInterval(15 * 60),direction: .left,instruction: "100 M")
+        let initialContentState = OrderStatusAttributes.OrderStatus(driverName: "John 👨🏻‍🍳", estimatedDeliveryTime: Date().addingTimeInterval(15 * 60),direction: .left,
+                                                                    instruction: "100 M")
                                                   
         do {
             let deliveryActivity = try Activity<OrderStatusAttributes>.request(
@@ -37,7 +33,9 @@ struct LiveActivityManager {
     
     func update() {
         Task {
-            let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John 👨🏻‍🍳", estimatedDeliveryTime: Date().addingTimeInterval(14 * 60),direction: .right,instruction: "150 M")
+            let updatedDeliveryStatus = OrderStatusAttributes.OrderStatus(driverName: "John 👨🏻‍🍳", estimatedDeliveryTime: Date().addingTimeInterval(14 * 60),
+                                                                          direction: .right,
+                                                                          instruction: "150 M")
             
             for activity in Activity<OrderStatusAttributes>.activities{
                 await activity.update(using: updatedDeliveryStatus)
