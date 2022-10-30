@@ -13,9 +13,6 @@ struct HomeView: View {
     @State var isDirectionListVisible = false
     
     var body: some View {
-        let binding = Binding<Bool>(get: { mapState == .polylineAdded && isDirectionListVisible }, set: {value in
-            isDirectionListVisible = value
-        })
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
                 GeometryReader { geometry in
@@ -37,19 +34,19 @@ struct HomeView: View {
                 
                 HStack {
                     DynamicActionButton(mapState: $mapState)
-                    Spacer()
                     if mapState == .polylineAdded {
                         SystemImageActionButton(imageName: "arrow.triangle.branch") {
-                            isDirectionListVisible = true
+                            isDirectionListVisible.toggle()
                         }
                     }
                 }
-                .padding(.horizontal)
+                .padding(.leading)
                 .padding(.top, 4)
+                .padding(.trailing, 60)
             }
-            if mapState == .polylineAdded && locationViewModel.lookAroundScene != nil{
+            if mapState == .polylineAdded && locationViewModel.lookAroundScene != nil {
                 HStack {
-                    LookAroundView()
+                    MapLookAroundView()
                         .frame(width: 165,height: 100,alignment: .bottomLeading)
                         .cornerRadius(5)
                         .transition(.asymmetric(insertion: .scale, removal: .opacity))
@@ -92,7 +89,7 @@ struct HomeView: View {
                 //TODO: Action
             }
         }
-        .sheet(isPresented: binding) {
+        .sheet(isPresented: $isDirectionListVisible) {
             DirectionsListView()
                 .presentationDetents([.tiny,.medium, .large])
                 .presentationDragIndicator(.automatic)

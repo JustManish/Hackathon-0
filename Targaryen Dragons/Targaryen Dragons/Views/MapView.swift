@@ -24,7 +24,6 @@
      @StateObject var mapConfigurationManager = MapConfiguartionManager.shared
 
      func makeUIView(context: Context) -> some MKMapView {
-         mapView.isRotateEnabled = false
          mapView.showsUserLocation = true
          mapView.userTrackingMode = .follow
          mapView.isScrollEnabled = true
@@ -115,12 +114,7 @@
 
              parent.locationViewModel.getDestinationRoute(from: userLocationCoordinate,
                                                           to: coordinate) { [self] route in
-                 //self.parent.mapView.addOverlay(route.polyline)
                  self.parent.animateTravel(parent.mapView, startCoordinate: userLocationCoordinate)
-//                 self.parent.mapState = .polylineAdded
-//                 let rect = self.parent.mapView.mapRectThatFits(route.polyline.boundingMapRect,
-//                                                                edgePadding: .init(top: 64, left: 32, bottom: 500, right: 32))
-//                 self.parent.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
              }
          }
 

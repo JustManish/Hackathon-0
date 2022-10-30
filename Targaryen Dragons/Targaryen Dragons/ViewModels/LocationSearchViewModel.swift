@@ -19,10 +19,8 @@
      @Published var expectedArrivalTime: String?
      @Published var lookAroundScene : MKLookAroundScene?
      
-     let lookAroundControler = MKLookAroundViewController()
-     
      var routeSteps: [RouteStep] {
-         if let route{
+         if let route {
             return route.steps.map { RouteStep(step: $0) }
          } else {
             return []
@@ -105,7 +103,7 @@
          let sceneRequest = MKLookAroundSceneRequest(mapItem: mapItem)
          sceneRequest.getSceneWithCompletionHandler { scene, error in
              if let error {
-                 print("\(mapItem.placemark.title ?? "")====\(error)")
+                 print("Debug: \(mapItem.placemark.title ?? "")====\(error)")
                  self.lookAroundScene = nil
                  return
              }
