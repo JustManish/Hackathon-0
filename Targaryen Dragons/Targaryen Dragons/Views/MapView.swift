@@ -91,8 +91,12 @@
                  context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
              //}
              if(locationViewModel.currentLocationIndex == 0){
+                 print("locationViewModel.currentLocationIndex \(locationViewModel.currentLocationIndex)")
                  locationViewModel.startLiveActivity()
              } else {
+                 
+                 print("locationViewModel.currentLocationIndex in update \(locationViewModel.currentLocationIndex)")
+
                  locationViewModel.updateLiveActivity()
              }
              locationViewModel.incrementCurrentLocationIndex()
