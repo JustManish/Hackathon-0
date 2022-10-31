@@ -41,13 +41,3 @@ https://github.com/spaceotech/BackgroundTask/issues/2
 ## Demo
 
 user-images.githubusercontent.com/105850771/198895996-63ec0a08-9cda-439c-9e0c-ef7bf5b656ed.mov
-
-https://![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 23 45](https://user-images.githubusercontent.com/102941982/198921348-d95146d6-17db-4cd![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 28 34](https://user-images.githubusercontent.com/102941982/198921914-cd36186a-f5bc-4b69-94f0-73278f4257e1.png)
-7-9696-2b5f2![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 30 33](https://user-images.githubusercontent.com/102941982/198922116-75042def-b528-4d24-9668-bea88740bc0a.png)
-645ad6d.png)
-![S![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 34 59](https://user-images.githubusercontent.com/102941982/198922675-4850cacf-b8eb-4e35-b51e-5f0ee550de8b.png)
-![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 35 22](https://user-images.githubusercontent.com/102941982/198922684-e181c84b-a311-4508-94b1-0d3f9cfe3917.png)
-im![![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 33 14](https://user-images.githubusercontent.com/102941982/198922477-5ff5b9cb-2926-424f-b23e-bf483d4d76a6.png)
-![Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 33 19](https://user-images.githubusercontent.com/102941982/198922436-0ffd1ca1-2e04-4fd8-bcd7-5c2372314624.png)
-Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 32 27](https://user-images.githubusercontent.com/102941982/198922342-94a9e9a5-bf8d-469c-8c1f-488b1d296456.png)
-ulator Screen Shot - iPhone 14 Pro Max - 2022-10-31 at 08 31 46](https://user-images.githubusercontent.com/102941982/198922267-e852c8a3-ba31-4b38-87c0-ac747615d575.png)
