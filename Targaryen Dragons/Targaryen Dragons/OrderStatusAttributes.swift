@@ -21,6 +21,7 @@ struct OrderStatusAttributes: ActivityAttributes {
     var numberOfItems: Int
     var customerNumber: String
     var id = UUID()
+    var startedTime: Date
 }
 
 enum Direction: String, Codable{

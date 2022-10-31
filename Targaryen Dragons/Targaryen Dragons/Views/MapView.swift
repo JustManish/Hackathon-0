@@ -86,6 +86,22 @@
              context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
              //}
              locationViewModel.updatePropertiesOnTimer()
+             if(locationViewModel.currentLocationIndex == 0){
+                 print("locationViewModel.currentLocationIndex \(locationViewModel.currentLocationIndex)")
+                 locationViewModel.startLiveActivity()
+             } else {
+                 
+                 print("locationViewModel.currentLocationIndex in update \(locationViewModel.currentLocationIndex)")
+
+                 locationViewModel.updateLiveActivity()
+             }
+             locationViewModel.incrementCurrentLocationIndex()
+             if locationViewModel.currentLocationIndex == locationViewModel.routeCoordinates.count - 1 {
+                 locationViewModel.startLiveActivity()
+                 timer.invalidate()
+                 locationViewModel.timer = nil
+                 locationViewModel.resetCurrentLocationIndex()
+             }
          }
      }
      

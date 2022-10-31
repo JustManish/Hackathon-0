@@ -124,16 +124,17 @@ struct LockScreenView: View {
         VStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .center) {
-                    Text("Hey \(context.state.driverName) drive safe!").font(.headline)
                     HStack {
-                        Text("After \(context.state.instruction) take \(context.state.direction.rawValue.capitalized)")
+                        Text("Take \(context.state.direction.rawValue.capitalized) after \(context.state.instruction)")
                             .font(.title2)
                         Image(systemName: context.state.direction.directionImage)
                             .foregroundColor(.green)
                             .bold()
                     }
-                    .font(.subheadline)
-                    BottomLineView(time: context.state.estimatedDeliveryTime, number: context.attributes.customerNumber)
+                    
+                    BottomLineView(startedTime: context.attributes.startedTime,
+                                   remainingTime: context.state.estimatedDeliveryTime,
+                                   number: context.attributes.customerNumber)
                 }
             }
         }.padding(15)
@@ -141,22 +142,24 @@ struct LockScreenView: View {
 }
 
 struct BottomLineView: View {
-    var time: Date
+    var startedTime: Date
+    var remainingTime: Date
     let number: String
     var body: some View {
         HStack {
             Image("delivery")
-            VStack {
-                RoundedRectangle(cornerRadius: 5)
-                    .stroke(style: StrokeStyle(lineWidth: 1,
-                                               dash: [4]))
-                    .frame(height: 10)
-                    .overlay(Text(time, style: .timer).font(.system(size: 8)).multilineTextAlignment(.center))
+            VStack(alignment: .center) {
+                VStack {
+                    ProgressView(timerInterval: startedTime...remainingTime, countsDown: false)
+                    Text(remainingTime, style: .timer)
+                }
+                .font(.system(size: 10))
+                .multilineTextAlignment(.center)
             }
             Image("home-address")
-            Link(destination: URL(string: "targaryandragon://targaryen?number=\(number)")!) {
-                Image(systemName:"phone.circle")
-            }.foregroundColor(.green)
+        }
+        .onTapGesture {
+            URL(string: "targaryandragon://targaryen?number=\(number)")!
         }
     }
 }
