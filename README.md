@@ -18,10 +18,6 @@ Utilized `MapKit` and `Live Activities` to show Map which support different Map 
 - For Testing in simulator GPX file is used to get fixed route coordinates for Live Location tracking in map.
 - Information show in Live Activity are just simulation from Live Route Track and not any business information.
 
-This text you see here is *actually- written in Markdown! To get a feel
-for Markdown's syntax, type some text into the left window and
-watch the results in the right.
-
 ## Tech
 
 Below listed Frameworks are used from iOS SDK.
