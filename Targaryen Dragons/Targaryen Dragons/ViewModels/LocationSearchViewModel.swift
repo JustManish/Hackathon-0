@@ -8,8 +8,6 @@
  import Foundation
  import MapKit
 
-//Devs Remember Simulated Location is set from Wadala west to Gateway of India
-
 class LocationSearchViewModel: NSObject, ObservableObject {
     
     @Published var results = [MKLocalSearchCompletion]()
@@ -115,9 +113,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
              guard let route = response?.routes.first else { return }
              self.route = route
              self.routeCoordinates = route.steps.flatMap(\.polyline.mkCoordinates)
-             // ----------- Code required to generate coordinates ---------
              route.polyline.printGPXCoordinatesForRoute()
-             // ----------- Code required to generate coordinates ---------
              self.getExpectedTravelTime(with: route.expectedTravelTime)
              completion(route)
          }
@@ -157,27 +153,22 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     }
      
      func resetMap() {
-         LiveActivityManager().stop()
-         if let timer {
-             timer.invalidate()
-             self.timer = nil
-         }
+         stopNavigation()
          lookAroundScene = nil
      }
      func updatePropertiesOnTimer() {
-         if(currentLocationIndex == 0){
-             startLiveActivity()
-         } else {
-             updateLiveActivity()
-         }
+         currentLocationIndex == .zero ? startLiveActivity() : updateLiveActivity()
          incrementCurrentLocationIndex()
          if currentLocationIndex == routeCoordinates.count - 1 {
-             endLiveActivity()
-             timer?.invalidate()
-             timer = nil
-             resetCurrentLocationIndex()
+             stopNavigation()
          }
      }
+    func stopNavigation() {
+        endLiveActivity()
+        timer?.invalidate()
+        timer = nil
+        resetCurrentLocationIndex()
+    }
      
      func checkAndDismissLiveActivity() {
          if timer == nil {

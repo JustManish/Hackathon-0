@@ -31,10 +31,10 @@ struct LiveActivityManager {
                 attributes: attributes,
                 contentState: initialContentState,
                 pushType: nil)
-            print("Requested a order status Live Activity \(deliveryActivity.id)")
+            debugPrint("Requested a order status Live Activity \(deliveryActivity.id)")
             //deliveryActivity.activityStateUpdates to check the status
         } catch (let error) {
-            print("Error requesting order status Live Activity \(error.localizedDescription)")
+            debugPrint("Error requesting order status Live Activity \(error.localizedDescription)")
         }
     }
     
@@ -66,22 +66,8 @@ struct LiveActivityManager {
     func showAllDeliveries() {
         Task {
             for activity in Activity<OrderStatusAttributes>.activities {
-                print("delivery details: \(activity.id) -> \(activity.attributes)")
+                debugPrint("delivery details: \(activity.id) -> \(activity.attributes)")
             }
         }
     }
-}
-
-extension Double {
-    var distanceString: String {
-        if self > 1000 {
-            return "\((self / 1000).rounded(toPlaces:2)) KM"
-        } else {
-            return "\(self.rounded(toPlaces:2)) M"
-        }
-    }
-    func rounded(toPlaces places:Int) -> Double {
-            let divisor = pow(10.0, Double(places))
-            return (self * divisor).rounded() / divisor
-        }
 }

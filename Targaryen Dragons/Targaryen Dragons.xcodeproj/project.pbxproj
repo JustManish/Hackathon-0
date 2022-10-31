@@ -19,6 +19,9 @@
 		DF3B1288290E2FD50014623F /* MKMultiPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3B1287290E2FD50014623F /* MKMultiPoint+Extension.swift */; };
 		DF3B128C290E8CA30014623F /* wadala_west_to_gateway_of_india.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DF3B128B290E8CA30014623F /* wadala_west_to_gateway_of_india.gpx */; };
 		DF3BED7A290CE1CB009D2CE5 /* MKRoute+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */; };
+		DF54BE81290F7DDA00B18568 /* MapView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF54BE80290F7DDA00B18568 /* MapView+Extension.swift */; };
+		DF54BE83290F7EA000B18568 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF54BE82290F7EA000B18568 /* Double+Extension.swift */; };
+		DF54BE85290F81C200B18568 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF54BE84290F81C100B18568 /* Launch.storyboard */; };
 		DFB4C7A8290A8A9300879254 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A7290A8A9300879254 /* WidgetKit.framework */; };
 		DFB4C7AA290A8A9300879254 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFB4C7A9290A8A9300879254 /* SwiftUI.framework */; };
 		DFB4C7AD290A8A9300879254 /* OrderStatusBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB4C7AC290A8A9300879254 /* OrderStatusBundle.swift */; };
@@ -82,6 +85,9 @@
 		DF3B1287290E2FD50014623F /* MKMultiPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMultiPoint+Extension.swift"; sourceTree = "<group>"; };
 		DF3B128B290E8CA30014623F /* wadala_west_to_gateway_of_india.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = wadala_west_to_gateway_of_india.gpx; sourceTree = "<group>"; };
 		DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKRoute+Extension.swift"; sourceTree = "<group>"; };
+		DF54BE80290F7DDA00B18568 /* MapView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView+Extension.swift"; sourceTree = "<group>"; };
+		DF54BE82290F7EA000B18568 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		DF54BE84290F81C100B18568 /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
 		DFB4C7A5290A8A9300879254 /* OrderStatusExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OrderStatusExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFB4C7A7290A8A9300879254 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DFB4C7A9290A8A9300879254 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -128,6 +134,7 @@
 		31AA1879290A498200079CA8 = {
 			isa = PBXGroup;
 			children = (
+				DF54BE84290F81C100B18568 /* Launch.storyboard */,
 				31AA1884290A498200079CA8 /* Targaryen Dragons */,
 				DFB4C7AB290A8A9300879254 /* OrderStatus */,
 				DFB4C7A6290A8A9300879254 /* Frameworks */,
@@ -175,6 +182,8 @@
 				4C509F09290DAC570099C761 /* PresentationDetent+Extension.swift */,
 				DF3BED79290CE1CB009D2CE5 /* MKRoute+Extension.swift */,
 				DF3B1287290E2FD50014623F /* MKMultiPoint+Extension.swift */,
+				DF54BE80290F7DDA00B18568 /* MapView+Extension.swift */,
+				DF54BE82290F7EA000B18568 /* Double+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 				31AA188D290A498500079CA8 /* Preview Assets.xcassets in Resources */,
 				31AA188A290A498500079CA8 /* Assets.xcassets in Resources */,
 				DF3B128C290E8CA30014623F /* wadala_west_to_gateway_of_india.gpx in Resources */,
+				DF54BE85290F81C200B18568 /* Launch.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,8 +359,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C509EED290CF0DF0099C761 /* MapConfigurationManager.swift in Sources */,
+				DF54BE81290F7DDA00B18568 /* MapView+Extension.swift in Sources */,
 				DFB4C7B7290A8A9500879254 /* OrderStatus.intentdefinition in Sources */,
 				DF3BED7A290CE1CB009D2CE5 /* MKRoute+Extension.swift in Sources */,
+				DF54BE83290F7EA000B18568 /* Double+Extension.swift in Sources */,
 				4C509F0E290DAE530099C761 /* ActionButton.swift in Sources */,
 				4C509EEB290CF0BB0099C761 /* MapLookAroundView.swift in Sources */,
 				4C509EEB290CF0BB0099C761 /* MapLookAroundView.swift in Sources */,
@@ -530,6 +542,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,6 +577,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Launch;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
