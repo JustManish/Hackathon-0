@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zSm-cI-ser">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -8,44 +8,49 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="3CJ-9f-G72">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                <viewController id="zSm-cI-ser" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yjd-Ft-MUJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
-                                <rect key="frame" x="0.0" y="832" width="393" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientbg" translatesAutoresizingMaskIntoConstraints="NO" id="sfW-zR-6sb">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Targaryen Dragons" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="zaf-3o-m0W">
+                                <rect key="frame" x="0.0" y="150" width="393" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-PA-4vi">
-                                <rect key="frame" x="96.666666666666686" y="326" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0GV-A7-tTW"/>
-                                    <constraint firstAttribute="height" constant="200" id="yYX-eZ-aKI"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dragon" translatesAutoresizingMaskIntoConstraints="NO" id="41j-sO-fpx">
+                                <rect key="frame" x="76" y="193" width="241" height="512"/>
                             </imageView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <viewLayoutGuide key="safeArea" id="QvD-AW-ymN"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cT7-PA-4vi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4en-Bt-rOs"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="20" symbolic="YES" id="SfN-ll-jLj"/>
-                            <constraint firstItem="cT7-PA-4vi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WDV-F0-ppo"/>
-                            <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
+                            <constraint firstItem="sfW-zR-6sb" firstAttribute="leading" secondItem="QvD-AW-ymN" secondAttribute="leading" id="08B-aQ-SvT"/>
+                            <constraint firstItem="zaf-3o-m0W" firstAttribute="centerY" secondItem="yjd-Ft-MUJ" secondAttribute="bottom" multiplier="1/5" constant="1" id="EgM-CL-Ify"/>
+                            <constraint firstItem="sfW-zR-6sb" firstAttribute="top" secondItem="yjd-Ft-MUJ" secondAttribute="top" id="Fvd-cC-okV"/>
+                            <constraint firstItem="zaf-3o-m0W" firstAttribute="leading" secondItem="QvD-AW-ymN" secondAttribute="leading" symbolic="YES" id="PCg-9N-goE"/>
+                            <constraint firstAttribute="bottom" secondItem="sfW-zR-6sb" secondAttribute="bottom" id="Yly-xQ-oDB"/>
+                            <constraint firstItem="41j-sO-fpx" firstAttribute="leading" secondItem="QvD-AW-ymN" secondAttribute="leading" constant="76" id="kM6-vc-dmE"/>
+                            <constraint firstItem="QvD-AW-ymN" firstAttribute="trailing" secondItem="sfW-zR-6sb" secondAttribute="trailing" id="oPf-b9-dGG"/>
+                            <constraint firstItem="QvD-AW-ymN" firstAttribute="centerX" secondItem="zaf-3o-m0W" secondAttribute="centerX" id="sSy-Mb-wzp"/>
+                            <constraint firstItem="41j-sO-fpx" firstAttribute="centerX" secondItem="QvD-AW-ymN" secondAttribute="centerX" id="tkf-Ig-1KG"/>
+                            <constraint firstItem="41j-sO-fpx" firstAttribute="top" secondItem="zaf-3o-m0W" secondAttribute="bottom" id="zh8-vS-Ede"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="02g-Ks-G1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
+            <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="launch" width="167" height="167"/>
+        <image name="dragon" width="512" height="512"/>
+        <image name="gradientbg" width="1049" height="1997"/>
     </resources>
 </document>
