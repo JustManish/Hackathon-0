@@ -153,23 +153,22 @@ class LocationSearchViewModel: NSObject, ObservableObject {
      }
      
      func resetMap() {
-         LiveActivityManager().stop()
-         if let timer {
-             timer.invalidate()
-             self.timer = nil
-         }
+         stopNavigation()
          lookAroundScene = nil
      }
      func updatePropertiesOnTimer() {
          currentLocationIndex == .zero ? startLiveActivity() : updateLiveActivity()
          incrementCurrentLocationIndex()
          if currentLocationIndex == routeCoordinates.count - 1 {
-             endLiveActivity()
-             timer?.invalidate()
-             timer = nil
-             resetCurrentLocationIndex()
+             stopNavigation()
          }
      }
+    func stopNavigation() {
+        endLiveActivity()
+        timer?.invalidate()
+        timer = nil
+        resetCurrentLocationIndex()
+    }
      
      func checkAndDismissLiveActivity() {
          if timer == nil {

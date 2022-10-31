@@ -81,18 +81,6 @@
              context.coordinator.setRegion(coordinate)
              context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
              locationViewModel.updatePropertiesOnTimer()
-             if(locationViewModel.currentLocationIndex == 0) {
-                 locationViewModel.startLiveActivity()
-             } else {
-                 locationViewModel.updateLiveActivity()
-             }
-             locationViewModel.incrementCurrentLocationIndex()
-             if locationViewModel.currentLocationIndex == locationViewModel.routeCoordinates.count - 1 {
-                 locationViewModel.startLiveActivity()
-                 timer.invalidate()
-                 locationViewModel.timer = nil
-                 locationViewModel.resetCurrentLocationIndex()
-             }
          }
      }
      
