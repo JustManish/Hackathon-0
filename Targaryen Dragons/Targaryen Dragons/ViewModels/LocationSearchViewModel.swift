@@ -8,8 +8,6 @@
  import Foundation
  import MapKit
 
-//Devs Remember Simulated Location is set from Wadala west to Gateway of India
-
 class LocationSearchViewModel: NSObject, ObservableObject {
     
     @Published var results = [MKLocalSearchCompletion]()
@@ -30,27 +28,36 @@ class LocationSearchViewModel: NSObject, ObservableObject {
         return []
     }
     
-    private var totalTraveledTime: Double {
-        return expectedTravelTimePerCoordinates * Double(currentLocationIndex)
-    }
-    
-    
-     var nextStep: MKRoute.Step? {
-         var calculatedTime = 0.0
-         for step in routeSteps{
-             if totalTraveledTime <= calculatedTime {
-                 return step.step
-             }
-             calculatedTime += expectedTimeForStep(step.step)
-         }
-         return nil
-     }
-     
-     private let searchCompleter = MKLocalSearchCompleter()
+    private let searchCompleter = MKLocalSearchCompleter()
     var queryFragment: String = "" {
         didSet {
             searchCompleter.queryFragment = queryFragment
         }
+    }
+    
+    private let liveActivityManager = LiveActivityManager()
+    
+    private var expectedTravelTimePerCoordinates: Double {
+        return totalExpectedTime / Double(routeCoordinates.count)
+    }
+
+    private var totalExpectedTime: Double {
+        return route?.expectedTravelTime ?? 0.0
+    }
+    
+    private var totalTraveledTime: Double {
+        return expectedTravelTimePerCoordinates * Double(currentLocationIndex)
+    }
+    
+    var nextStep: MKRoute.Step? {
+        var calculatedTime = 0.0
+        for step in routeSteps{
+            if totalTraveledTime <= calculatedTime {
+                return step.step
+            }
+            calculatedTime += expectedTimeForStep(step.step)
+        }
+        return nil
     }
 
      override init() {
@@ -110,9 +117,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
              guard let route = response?.routes.first else { return }
              self.route = route
              self.routeCoordinates = route.steps.flatMap(\.polyline.mkCoordinates)
-             // ----------- Code required to generate coordinates ---------
              route.polyline.printGPXCoordinatesForRoute()
-             // ----------- Code required to generate coordinates ---------
              self.getExpectedTravelTime(with: route.expectedTravelTime)
              completion(route)
          }
@@ -156,11 +161,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
          lookAroundScene = nil
      }
      func updatePropertiesOnTimer() {
-         if(currentLocationIndex == 0){
-             startLiveActivity()
-         } else {
-             updateLiveActivity()
-         }
+         currentLocationIndex == .zero ? startLiveActivity() : updateLiveActivity()
          incrementCurrentLocationIndex()
          if currentLocationIndex == routeCoordinates.count - 1 {
              endLiveActivity()
@@ -174,16 +175,6 @@ class LocationSearchViewModel: NSObject, ObservableObject {
          if timer == nil {
              endLiveActivity()
          }
-    }
-    
-    private let liveActivityManager = LiveActivityManager()
-    
-    private var expectedTravelTimePerCoordinates: Double {
-        return totalExpectedTime / Double(routeCoordinates.count)
-    }
-
-    private var totalExpectedTime: Double {
-        return route?.expectedTravelTime ?? 0.0
     }
 }
 
