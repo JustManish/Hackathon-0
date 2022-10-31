@@ -38,6 +38,7 @@
 
                      TextField("Where to?", text: $viewModel.queryFragment)
                          .frame(height: 32)
+                         .foregroundColor(.black)
                          .background(Color(.white))
                          .padding(.trailing)
                  }

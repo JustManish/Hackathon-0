@@ -12,6 +12,7 @@ struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
     @State var isDirectionListVisible = false
+    @State private var isMapConfigHidden: Bool = true
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -58,8 +59,9 @@ struct HomeView: View {
                 .padding(30)
             }
             HStack(alignment: .bottom) {
-                if mapState == .mapSettingShown {
+                withAnimation {
                     MapConfigurationView()
+                        .opacity(isMapConfigHidden ? .zero : 1.0)
                 }
                 Spacer(minLength: 10)
                 VStack(spacing: 12) {
@@ -71,9 +73,8 @@ struct HomeView: View {
                             .foregroundColor(.red)
                     }
                     Button {
-                        if mapState == .mapSettingShown {
-                            mapState = .polylineAdded
-                        } else {
+                        isMapConfigHidden.toggle()
+                        if !isMapConfigHidden {
                             mapState = .mapSettingShown
                         }
                     } label: {
