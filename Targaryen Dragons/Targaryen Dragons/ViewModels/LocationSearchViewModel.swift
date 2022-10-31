@@ -145,7 +145,7 @@
      }
 
      func expectedTimeForStep(_ step: MKRoute.Step) -> Double {
-         if let route, totalExpectedTime != 0{
+         if let route, totalExpectedTime != 0 {
              return (totalExpectedTime / route.distance) * step.distance
          }
          return 0.0

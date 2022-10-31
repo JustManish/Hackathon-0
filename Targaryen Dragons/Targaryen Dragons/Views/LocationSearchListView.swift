@@ -14,7 +14,6 @@
 
      var body: some View {
          VStack {
-             // header view
              HStack {
                  VStack {
                      Circle()
@@ -35,12 +34,12 @@
                          .frame(height: 32)
                          .background(Color(.systemGroupedBackground))
                          .padding(.trailing)
+                         .disabled(true)
 
                      TextField("Where to?", text: $viewModel.queryFragment)
                          .frame(height: 32)
-                         .background(Color(.systemGray4))
+                         .background(Color(.white))
                          .padding(.trailing)
-
                  }
              }
              .padding(.horizontal)
