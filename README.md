@@ -30,7 +30,7 @@ Below listed Frameworks are used from iOS SDK.
 
 - https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities
 - https://medium.com/swlh/simulating-dynamic-locations-with-xcode-c72ccfacef9e
-- https://www.kodeco.com/7738344-mapkit-tutorial-getting-started![Uploading Simulator Screen Shot - iPhone 14 Pro Max - 2022-10-30 at 22.12.31.png…]()
+- https://www.kodeco.com/7738344-mapkit-tutorial-getting-started!
 - https://holyswift.app/new-mapkit-configurations-with-swiftui/
 - https://developer.apple.com/documentation/mapkit/explore_a_location_with_a_highly_detailed_map_and_look_around
 
