@@ -24,42 +24,38 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     var routeSteps: [RouteStep] {
         if let route {
             return route.steps.map { RouteStep(step: $0) }
-        }
-        return []
-    }
+         }
+         return []
+     }
     
-    private let searchCompleter = MKLocalSearchCompleter()
-    var queryFragment: String = "" {
-        didSet {
-            searchCompleter.queryFragment = queryFragment
-        }
-    }
-    
+     var nextStep: MKRoute.Step? {
+         var calculatedTime = 0.0
+         for step in routeSteps{
+             if totalTraveledTime <= calculatedTime {
+                 return step.step
+             }
+             calculatedTime += expectedTimeForStep(step.step)
+         }
+         return nil
+     }
+     
+     var queryFragment: String = "" {
+         didSet {
+             searchCompleter.queryFragment = queryFragment
+         }
+     }
+
     private let liveActivityManager = LiveActivityManager()
+    private let searchCompleter = MKLocalSearchCompleter()
     
     private var expectedTravelTimePerCoordinates: Double {
         return totalExpectedTime / Double(routeCoordinates.count)
-    }
-
-    private var totalExpectedTime: Double {
-        return route?.expectedTravelTime ?? 0.0
     }
     
     private var totalTraveledTime: Double {
         return expectedTravelTimePerCoordinates * Double(currentLocationIndex)
     }
     
-    var nextStep: MKRoute.Step? {
-        var calculatedTime = 0.0
-        for step in routeSteps{
-            if totalTraveledTime <= calculatedTime {
-                return step.step
-            }
-            calculatedTime += expectedTimeForStep(step.step)
-        }
-        return nil
-    }
-
      override init() {
          super.init()
          searchCompleter.delegate = self
@@ -145,12 +141,16 @@ class LocationSearchViewModel: NSObject, ObservableObject {
          }
      }
 
-     func expectedTimeForStep(_ step: MKRoute.Step) -> Double {
-         if let route, totalExpectedTime != 0 {
-             return (totalExpectedTime / route.distance) * step.distance
-         }
-         return 0.0
-     }
+    private var totalExpectedTime: Double {
+        return route?.expectedTravelTime ?? 0.0
+    }
+    
+    func expectedTimeForStep(_ step: MKRoute.Step) -> Double {
+        if let route, totalExpectedTime != 0 {
+            return (totalExpectedTime / route.distance) * step.distance
+        }
+        return 0.0
+    }
      
      func resetMap() {
          stopNavigation()
@@ -174,8 +174,9 @@ class LocationSearchViewModel: NSObject, ObservableObject {
          if timer == nil {
              endLiveActivity()
          }
-    }
-}
+     }
+     
+ }
 
  // MARK: - MKLocalSearchCompleterDelegate
 
