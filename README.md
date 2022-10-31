@@ -40,3 +40,31 @@ https://github.com/spaceotech/BackgroundTask/issues/2
 
 ## Demo
 [+user-images.githubusercontent.com/105850771/198895996-63ec0a08-9cda-439c-9e0c-ef7bf5b656ed.mov](https://user-images.githubusercontent.com/105850771/198895996-63ec0a08-9cda-439c-9e0c-ef7bf5b656ed.mov)
+
+## Screenshots
+
+1. ![First](https://user-images.githubusercontent.com/105850771/198929631-08d9a208-7dfa-447f-8f31-98e0e9651691.png)
+
+2. ![Second](https://user-images.githubusercontent.com/105850771/198929653-479d9c13-70a9-430d-bade-58a6be2b2073.png)
+
+3. ![Third](https://user-images.githubusercontent.com/105850771/198929699-2ad49d66-3064-4b1e-8a24-37dd611178cc.png)
+
+4. ![Fourth](https://user-images.githubusercontent.com/105850771/198929677-777ca096-9b14-4fd5-92f7-fc32cf9935a0.png)
+
+5. ![Fifth](https://user-images.githubusercontent.com/105850771/198929749-76215a32-2351-4ad4-a661-e2dcb502bf4d.png)
+
+6. ![Sixth](https://user-images.githubusercontent.com/105850771/198929747-4faf6e04-1c6b-4c75-9f80-847efbb09dc2.png)
+
+7. ![Seventh](https://user-images.githubusercontent.com/105850771/198929746-4d12c6ee-e858-4ff6-bd11-de5893c8c12b.png)
+
+8. ![Eight](https://user-images.githubusercontent.com/105850771/198929723-c67a9611-321d-4150-8dda-263a975224b2.png)
+
+9. ![Nine](https://user-images.githubusercontent.com/105850771/198929737-ee03ad82-4fae-4ac1-8d8e-239bc631a0a3.png)
+
+10. ![Ten](https://user-images.githubusercontent.com/105850771/198929741-6f6ab45a-6311-400b-beff-a595286ba71c.png)
+
+
+
+
+
+
