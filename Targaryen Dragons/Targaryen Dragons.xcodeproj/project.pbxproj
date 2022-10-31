@@ -520,7 +520,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Targaryen Dragons/Preview Content\"";
-				DEVELOPMENT_TEAM = GY8C66TYQJ;
+				DEVELOPMENT_TEAM = RLNA7ZSN7E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Targaryen-Dragons-Info.plist";
@@ -537,7 +537,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -554,7 +554,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Targaryen Dragons/Preview Content\"";
-				DEVELOPMENT_TEAM = GY8C66TYQJ;
+				DEVELOPMENT_TEAM = RLNA7ZSN7E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Targaryen-Dragons-Info.plist";
@@ -571,7 +571,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -586,7 +586,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GY8C66TYQJ;
+				DEVELOPMENT_TEAM = RLNA7ZSN7E;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OrderStatus/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = OrderStatus;
@@ -598,7 +598,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons.OrderStatus";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mm.Targaryen-Dragons-Tracker.OrderStatus";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
