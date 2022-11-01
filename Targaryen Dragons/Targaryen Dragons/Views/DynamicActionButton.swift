@@ -21,11 +21,12 @@
      func actionForState(_ state: MapViewState) {
          switch state {
          case .noInput:
+             viewModel.resetMap()
              print("DEBUG: No input")
          case .searchingForLocation:
              mapState = .noInput
              viewModel.resetMap()
-         case .locationSelected, .mapSettingShown, .startNavigating:
+         case .locationSelected, .startNavigating:
              mapState = .noInput
              viewModel.resetMap()
              viewModel.selectedLocation = nil
@@ -38,7 +39,7 @@
          switch state {
          case .noInput:
              return "line.3.horizontal"
-         case .searchingForLocation, .locationSelected, .mapSettingShown, .startNavigating:
+         case .searchingForLocation, .locationSelected, .startNavigating:
              return "arrow.left"
          case .polylineAdded:
              return "arrow.right"

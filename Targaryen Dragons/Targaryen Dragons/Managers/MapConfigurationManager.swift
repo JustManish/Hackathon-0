@@ -57,12 +57,34 @@ enum EmphasisStyle {
 
 
 final class MapConfiguartionManager: ObservableObject {
-    @Published var mapType: MapConfigurationType = .standard(elevationType: .realistic,
-                                                             emphasisStyle: ._default)
+    
+    static var defaultMapConfig: MKMapConfiguration {
+        let configuration = MKStandardMapConfiguration(elevationStyle: .realistic,
+                                                       emphasisStyle: .default)
+        configuration.pointOfInterestFilter = MKPointOfInterestFilter(including: [.atm,.airport,.beach,.nationalPark])
+        configuration.pointOfInterestFilter = MKPointOfInterestFilter(excluding: [.bakery])
+        configuration.showsTraffic = false
+        return configuration
+    }
+    
+    @Published var isMapConfigurationVisible: Bool = false
+    @Published var mapConfig: MKMapConfiguration = MapConfiguartionManager.defaultMapConfig
     
     static let shared: MapConfiguartionManager = MapConfiguartionManager()
     
     func updateMapConfigType(_ type: MapConfigurationType) {
-        self.mapType = type
+        switch type {
+        case .standard(let elevation, let style):
+            let configuration = MKStandardMapConfiguration(elevationStyle: elevation.value,
+                                                           emphasisStyle: style.value)
+            configuration.pointOfInterestFilter = MKPointOfInterestFilter(including: [.atm,.airport,.beach,.nationalPark])
+            configuration.pointOfInterestFilter = MKPointOfInterestFilter(excluding: [.bakery])
+            configuration.showsTraffic = false
+            mapConfig = configuration
+        case .hybrid(let elevation, _):
+            mapConfig = MKHybridMapConfiguration(elevationStyle: elevation.value)// this uses satelite images and road names, can se the globe in realistic
+        case .image(let elevation, _):
+            mapConfig = MKImageryMapConfiguration(elevationStyle: elevation.value) //flat - just images dont see the globe, realistic 3D realistic building can see the globe
+        }
     }
 }

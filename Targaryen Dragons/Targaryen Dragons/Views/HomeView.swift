@@ -12,7 +12,7 @@ struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
     @State var isDirectionListVisible = false
-    @State private var isMapConfigHidden: Bool = true
+    @StateObject var mapConfigManager: MapConfiguartionManager = MapConfiguartionManager.shared
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -59,10 +59,9 @@ struct HomeView: View {
                 .padding(30)
             }
             HStack(alignment: .bottom) {
-                withAnimation {
                     MapConfigurationView()
-                        .opacity(isMapConfigHidden ? .zero : 1.0)
-                }
+                        //.animation(.easeIn, value: mapConfigManager.isMapConfigurationVisible)
+                        .opacity(mapConfigManager.isMapConfigurationVisible ? 1.0 : .zero)
                 Spacer(minLength: 10)
                 VStack(spacing: 12) {
                     Button {
@@ -73,10 +72,7 @@ struct HomeView: View {
                             .foregroundColor(.red)
                     }
                     Button {
-                        isMapConfigHidden.toggle()
-                        if !isMapConfigHidden {
-                            mapState = .mapSettingShown
-                        }
+                        mapConfigManager.isMapConfigurationVisible.toggle()
                     } label: {
                         Image(systemName: "gearshape.fill")
                     }
@@ -85,6 +81,8 @@ struct HomeView: View {
                     .background(Color.blue)
                     .cornerRadius(5)
                 }
+                .opacity(mapState == MapViewState.searchingForLocation ||
+                         mapState == MapViewState.startNavigating ? .zero : 1.0)
             }
             .padding(10)
             .padding(.bottom, 30.0)
@@ -97,7 +95,7 @@ struct HomeView: View {
         })
         .sheet(isPresented: $isDirectionListVisible) {
             DirectionsListView()
-                .presentationDetents([.tiny,.medium, .large])
+                .presentationDetents([.tiny, .medium, .large])
                 .presentationDragIndicator(.automatic)
         }
         .edgesIgnoringSafeArea(.bottom)

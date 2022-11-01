@@ -43,19 +43,19 @@ struct MapConfigurationView: View {
             let new = newValue.changeConfig(type: mapType,
                                             elevation: elevationType,
                                             style: emphesisStyle)
-            mapSettings.mapType = new
+            mapSettings.updateMapConfigType(new)
         }
         .onChange(of: elevationType) { newValue in
             let new = mapType.changeConfig(type: mapType,
                                            elevation: elevationType,
                                            style: emphesisStyle)
-            mapSettings.mapType = new
+            mapSettings.updateMapConfigType(new)
         }
         .onChange(of: emphesisStyle) { newValue in
             let new = mapType.changeConfig(type: mapType,
                                            elevation: elevationType,
                                            style: emphesisStyle)
-            mapSettings.mapType = new
+            mapSettings.updateMapConfigType(new)
         }
         .padding(10)
         .background(.black.opacity(0.6))

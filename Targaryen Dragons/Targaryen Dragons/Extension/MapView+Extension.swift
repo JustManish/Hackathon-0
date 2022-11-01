@@ -12,22 +12,7 @@ import MapKit
 extension MapView {
     
      func updateMapType(_ mapView: MKMapView) {
-        switch mapConfigurationManager.mapType {
-        case .standard(let elevation, let style):
-            let configuration = MKStandardMapConfiguration(elevationStyle: elevation.value,
-                                                           emphasisStyle: style.value)
-            configuration.pointOfInterestFilter = MKPointOfInterestFilter(including: [.atm,.airport,.beach,.nationalPark])
-            configuration.pointOfInterestFilter = MKPointOfInterestFilter(excluding: [.bakery])
-            configuration.showsTraffic = false
-            mapView.preferredConfiguration = MKStandardMapConfiguration(elevationStyle:elevation.value, emphasisStyle: style.value)
-            
-        case .hybrid(let elevation, _):
-            mapView.preferredConfiguration = MKHybridMapConfiguration(elevationStyle: elevation.value)// this uses satelite images and road names, can se the globe in realistic
-            
-        case .image(let elevation, _):
-            
-            mapView.preferredConfiguration = MKImageryMapConfiguration(elevationStyle: elevation.value) //flat - just images dont see the globe, realistic 3D realistic building can see the globe
-        }
+         mapView.preferredConfiguration = mapConfigurationManager.mapConfig
     }
 }
 

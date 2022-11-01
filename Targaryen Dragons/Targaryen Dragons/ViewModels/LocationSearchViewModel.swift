@@ -146,7 +146,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     }
     
     func expectedTimeForStep(_ step: MKRoute.Step) -> Double {
-        if let route, totalExpectedTime != 0 {
+        if let route, totalExpectedTime != .zero {
             return (totalExpectedTime / route.distance) * step.distance
         }
         return 0.0
@@ -161,17 +161,19 @@ class LocationSearchViewModel: NSObject, ObservableObject {
          incrementCurrentLocationIndex()
          if currentLocationIndex == routeCoordinates.count - 1 {
              stopNavigation()
+             resetCurrentLocationIndex()
          }
      }
+    
     func stopNavigation() {
-        endLiveActivity()
         timer?.invalidate()
         timer = nil
         resetCurrentLocationIndex()
+        endLiveActivity()
     }
      
      func checkAndDismissLiveActivity() {
-         if timer == nil {
+         if let _ = timer {
              endLiveActivity()
          }
      }
